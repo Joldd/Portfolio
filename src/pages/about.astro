@@ -9,44 +9,76 @@ import Hero from '../components/Hero.astro';
 	<div class="stack gap-20">
 		<main class="wrapper about">
 			<Hero
-				title="About"
-				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+				title="À propos"
+				tagline="Merci de vous interesser à mon portfolio. Vous pourrez en apprendre ci-dessous un peu plus sur moi et mon parcours."
 			>
 			</Hero>
 
 			<section>
-				<h2 class="section-title">Background</h2>
+				<h2 class="section-title">Parcours</h2>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy.
-						Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum
-						id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla
-						pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
+						Après avoir travaillé quatre ans en tant qu'ingénieur en conception de machines spéciales, 
+						j'ai réalisé que je m'épanouirai davantage en travaillant dans le domaine du numérique et 
+						plus spécifiquement dans celui de la programmation d’applications, c’est la raison pour laquelle 
+						j’ai souhaité me réorienter. 
 					</p>
+					<br>
 					<p>
-						Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis
-						natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl
-						condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel
-						quam elementum pulvinar etiam non.
-					</p>
-					<p>
-						Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet
-						eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra.
-						Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
-						pretium fusce.
+						Etant passionné, j'ai eu le plaisir de créer un jeu de stratégie en temps réel appelé 
+						Vikings Versus Vicars durant mon temps libre. Le jeu est actuellement à l'étape de prototype,
+						nous pouvons y jouer uniquement en solo. J'ai pour ambition de le rendre jouable en multijoueur. 
 					</p>
 				</div>
 			</section>
 			<section>
-				<h2 class="section-title">Education</h2>
+				<h2 class="section-title">Diplômes</h2>
 				<div class="content">
-					<p>Corporis voluptates tenetur laudantium.</p>
+					<ul>
+						<li><strong>Gaming Campus </strong> &nbsp-&nbsp  Master MSc Développeur de jeu vidéo &nbsp-&nbsp Lyon  &nbsp-&nbsp  <strong>2024</strong></li>
+						<li><strong>Titre FEDE</strong>  &nbsp-&nbsp  Master Européen Expert IT &nbsp-&nbsp Application Intelligenteet Big Data  &nbsp-&nbsp  <strong>2024</strong></li>
+						<li><strong>Titre Professionnel</strong>  &nbsp-&nbsp  Concepteur Développeur d’applications &nbsp-&nbsp RNCP37873  &nbsp-&nbsp  <strong>2023</strong></li>
+						<li><strong>ENSMM</strong> &nbsp-&nbsp Ingénieur Mécanique et Mécatronique &nbsp-&nbsp Besançon &nbsp-&nbsp <strong>2017</strong></li>
+					</ul>
 				</div>
 			</section>
 			<section>
-				<h2 class="section-title">Skills</h2>
+				<h2 class="section-title">Compétences</h2>
 				<div class="content">
-					<p>officia unde omnis</p>
+					<ul>
+						<li>Front-end</li>
+						<ul>
+							<li>Javascript</li>
+							<li>Html</li>
+							<li>CSS</li>
+							<li>React</li>
+							<li>Three.js</li>
+						</ul>
+						<li>Back-end</li>
+						<ul>
+							<li>Node.js</li>
+							<li>Express</li>
+							<li>Rust</li>
+							<li>Python</li>
+							<li>SQL</li>
+						</ul>
+						<li>Jeux vidéo</li>
+						<ul>
+							<li>Unity</li>
+							<li>C#</li>
+							<li>NetCode</li>
+							<li>Unreal Engine 5</li>
+							<li>Blueprint</li>
+						</ul>
+						<li>Savoir être</li>
+						<ul>
+							<li>Travail d'équipe</li>
+							<li>Gestion de projet</li>
+							<li>Capacité d'adaptation</li>
+							<li>Autonomie</li>
+							<li>Méthodes agile</li>
+						</ul>
+					</ul>
 				</div>
 			</section>
 		</main>
@@ -83,6 +115,10 @@ import Hero from '../components/Hero.astro';
 
 	.content {
 		grid-column: 2 / 4;
+	}
+
+	.content ul {
+		line-height: 2;
 	}
 
 	.content :global(a) {

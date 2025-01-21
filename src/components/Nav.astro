@@ -13,6 +13,7 @@ const textLinks: { label: string; href: string }[] = [
 /** Icon links to social media — edit these with links to your profiles! */
 const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths; size: string }[] = [
 	{ label: 'Itch.io', href: 'https://julien-coutouly.itch.io/', icon: 'game', size : '1em' },
+	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/julien-coutouly-338a94127/', icon: 'linkedin', size : '1em' },
 	{ label: 'GitHub', href: 'https://github.com/Joldd', icon: 'github-logo', size : '1em' }
 ];
 
@@ -58,7 +59,7 @@ const isCurrentPage = (href: string) => {
 			<div class="socials">
 				{
 					iconLinks.map(({ href, icon, label, size }) => (
-						<a href={href} class="social">
+						<a href={href} class="social" title={label}>
 							<span class="sr-only">{label}</span>
 							<Icon icon={icon} size={size} />
 						</a>
@@ -83,7 +84,7 @@ const isCurrentPage = (href: string) => {
 			<div class="socials">
 				{
 					iconLinks.map(({ href, icon, label, size }) => (
-						<a href={href} class="social">
+						<a href={href} class="social" title={label}>
 							<span class="sr-only">{label}</span>
 							<Icon icon={icon} size={size} />
 						</a>

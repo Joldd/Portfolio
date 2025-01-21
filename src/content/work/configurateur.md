@@ -4,7 +4,7 @@ publishDate: 2020-03-02 00:00:00
 img: /assets/configurateur.jpg
 img_alt: Configurateur
 description: |
-  We designed a whodunnit-style game to introduce Markdown formatting. Suspense — suspicion — syntax!
+  Réalisation d'une application d'avant projet permettant de créer une ligne industrielle en 3D et d'obtenir son rapport détaillé.
 tags:
   - Unity
   - C#
@@ -12,25 +12,16 @@ tags:
   - 3D
 ---
 
-## Level-two heading
+Ce projet vise les clients industriels qui vendent des lignes de machines industrielles.
 
-> Tell me and I forget. Teach me and I remember. Involve me and I learn.
+Grâce à cette applications, les clients peuvent assembler une nouvelle ligne en disposant leurs machines comme bon leur semble sur la scène 3D
+Une fois la ligne créé il est alors possible de générer un rapport PDF décrivant toutes les caractéristiques de la ligne (coût, nombre d'opérateurs, surface, puissance nécéssaire, etc...).
 
-Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
+J'ai cherché à rendre l'application la plus intuitive possible en développant plusieurs fonctionnaltiés :
+* Les machines se positionnent entre elles via une aimantation pré-définie.
+* Il est possible de faire des groupes de machines.
+* On peut copier / coller / supprimer chaque élements de la scène.
+* Il est possible d'ajouter un plan d'implantation à la scène (format png de préférence), de le rédimmenssionner à la bonne échelle et de gérer sa transparence.
+* On peut modifier les caractéristiques de chaque machines indépendamment.
+* On peut sauvegarder la scène 3D sous un fichier puis la recharger avec ce même fichier sur une autre PC par exemple.
 
-Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel quam elementum pulvinar etiam non.
-
-### Level-three heading
-
-Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra. Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl pretium fusce.
-
-### Level-three heading
-
-Sed pulvinar porttitor mi in ultricies. Etiam non dolor gravida eros pulvinar pellentesque et dictum ex. Proin eu ornare ligula, sed condimentum dui. Vivamus tincidunt tellus mi, sed semper ipsum pharetra a. Suspendisse sollicitudin at sapien nec volutpat. Etiam justo urna, laoreet ac lacus sed, ultricies facilisis dolor. Integer posuere, metus vel viverra gravida, risus elit ornare magna, id feugiat erat risus ullamcorper libero. Proin vitae diam auctor, laoreet lorem vitae, varius tellus.
-
-Aenean pretium purus augue, ut bibendum erat convallis quis. Cras condimentum quis velit ac mollis. Suspendisse non purus fringilla, venenatis nisl porta, finibus odio. Curabitur aliquet metus faucibus libero interdum euismod. Morbi sed magna nisl. Morbi odio nibh, facilisis vel sapien eu, tempus tincidunt erat. Nullam erat velit, sagittis at purus quis, tristique scelerisque tortor. Pellentesque lacinia tortor id est aliquam viverra. Vestibulum et diam ac ipsum mollis fringilla.
-
-#### Level-four heading
-
-- We noted this
-- And also this other point

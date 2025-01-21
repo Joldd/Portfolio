@@ -4,8 +4,7 @@ publishDate: 2019-10-02 00:00:00
 img: /assets/pointcloud.jpg
 img_alt: pointcloud
 description: |
-  We developed brand positioning and design assets for the launch
-  of a new colored water product.
+  Ce site web permet de naviguer en 3D dans un nuage de points avec des outils de mesures, coupe, tracés, ...
 tags:
   - Web
   - Rust
@@ -13,14 +12,22 @@ tags:
   - Css
   - Html
   - Three.js
+  - PostgreSQL
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam non ligula vel metus efficitur hendrerit. In hac habitasse platea dictumst. Praesent et mauris ut mi dapibus semper. Curabitur tortor justo, efficitur sit amet pretium cursus, porta eget odio. Cras ac venenatis dolor. Donec laoreet posuere malesuada. Curabitur nec mi tempor, placerat leo sit amet, tincidunt est. Quisque pellentesque venenatis magna, eget tristique nibh pulvinar in. Vestibulum vitae volutpat arcu. Aenean ut malesuada odio, sit amet pellentesque odio. Suspendisse nunc elit, blandit nec hendrerit non, aliquet at magna. Donec id leo ut nulla sagittis sodales.
+Ce site web est à destination d'un grand panel de clients.
+Il permet d'uploader un nuage de points en ligne afin de le manipuler.
+Nous avons cherché à rendre son utilisation la plus intuitive possible.
+<p>De mon côté je me suis principalement occupé du développement d'une nouvelle fonctionnalité importante, celle du tracé en 3D.
+<p style="margin-top:0">Nous avions en effet identifié un besoin chez les clients qui est de mettre à jour les plans des locaux (plan d'implantation, plan de tuyauterie, etc...).
+<p style="margin-top:0">Grace à cet outil il est possible de tracer des formes géométrique en 3D aimantés au nuage de points pour ensuite exporter un plan au format DXF.</p>
+<p style="margin-top:0">Cela permet d'obtenir très rapidement un plan précis (dépendant de la qualité du nuage de points) de zones potentiellement difficile d'accès.</p>
 
-Integer vitae nibh elit. Suspendisse eget urna eu neque bibendum pharetra. Sed interdum lectus sem, in pulvinar magna dignissim vel. Quisque maximus at urna nec laoreet. Suspendisse potenti. Vestibulum rhoncus sem ut mi pellentesque, in vestibulum erat blandit. Aliquam sodales dui ac maximus consectetur. Duis quis est vehicula, imperdiet nisl nec, fermentum erat. Duis tortor diam, pharetra eu euismod in, vehicula non eros. Curabitur facilisis dui at erat ultrices gravida. In at nunc ultricies, pulvinar mi vel, sagittis mauris. Praesent pharetra posuere purus ac imperdiet. Nulla facilisi.
+Je me suis aussi occupé de la maintenance et de l'optimisation des différents outils de l'application :
+* Vue en coupe
+* Mesure en 3D
+* Ajout de modèles 3D
+* Navigation via des images 360°
+* Ajout de tags / fichiers
+* Déplacement à la souris ou en vue FPS
 
-Sed pulvinar porttitor mi in ultricies. Etiam non dolor gravida eros pulvinar pellentesque et dictum ex. Proin eu ornare ligula, sed condimentum dui. Vivamus tincidunt tellus mi, sed semper ipsum pharetra a. Suspendisse sollicitudin at sapien nec volutpat. Etiam justo urna, laoreet ac lacus sed, ultricies facilisis dolor. Integer posuere, metus vel viverra gravida, risus elit ornare magna, id feugiat erat risus ullamcorper libero. Proin vitae diam auctor, laoreet lorem vitae, varius tellus.
-
-Mauris sed eros in ex maximus volutpat. Suspendisse potenti. Donec lacinia justo consectetur sagittis tempor. Proin ullamcorper nisi vitae auctor rhoncus. Sed tristique aliquam augue. Pellentesque vitae fringilla ligula. Nulla arcu elit, efficitur eu nunc malesuada, eleifend tincidunt orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer mattis orci in bibendum ultricies. Quisque a dui erat. Phasellus et vulputate ipsum. Proin metus ex, lobortis nec ornare eget, bibendum ut sapien. Aliquam in dolor lobortis, aliquam tellus a, congue augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Aenean pretium purus augue, ut bibendum erat convallis quis. Cras condimentum quis velit ac mollis. Suspendisse non purus fringilla, venenatis nisl porta, finibus odio. Curabitur aliquet metus faucibus libero interdum euismod. Morbi sed magna nisl. Morbi odio nibh, facilisis vel sapien eu, tempus tincidunt erat. Nullam erat velit, sagittis at purus quis, tristique scelerisque tortor. Pellentesque lacinia tortor id est aliquam viverra. Vestibulum et diam ac ipsum mollis fringilla.
