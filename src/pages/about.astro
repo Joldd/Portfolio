@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 import ContactCTA from '../components/ContactCTA.astro';
 import Hero from '../components/Hero.astro';
+import TableSkills from '../components/TableSkills.astro';
 ---
 
 <BaseLayout title="Julien Coutouly" description="About Julien Coutouly">
@@ -44,41 +45,12 @@ import Hero from '../components/Hero.astro';
 			</section>
 			<section>
 				<h2 class="section-title">Compétences</h2>
-				<div class="content">
-					<ul>
-						<li>Front-end</li>
-						<ul>
-							<li>Javascript</li>
-							<li>Html</li>
-							<li>CSS</li>
-							<li>React</li>
-							<li>Three.js</li>
-						</ul>
-						<li>Back-end</li>
-						<ul>
-							<li>Node.js</li>
-							<li>Express</li>
-							<li>Rust</li>
-							<li>Python</li>
-							<li>SQL</li>
-						</ul>
-						<li>Jeux vidéo</li>
-						<ul>
-							<li>Unity</li>
-							<li>C#</li>
-							<li>NetCode</li>
-							<li>Unreal Engine 5</li>
-							<li>Blueprint</li>
-						</ul>
-						<li>Savoir être</li>
-						<ul>
-							<li>Travail d'équipe</li>
-							<li>Gestion de projet</li>
-							<li>Capacité d'adaptation</li>
-							<li>Autonomie</li>
-							<li>Méthodes agile</li>
-						</ul>
-					</ul>
+				<div class="skills">
+					<TableSkills head="Front-end" skills={["Javascript", "Html", "Css", "React", "Three.js"]} headColor='#009B4D'></TableSkills>
+					<TableSkills head="Back-end" skills={["Node.js", "Express", "Rust", "Python", "SQL"]} headColor='#E7473C'></TableSkills>
+					<TableSkills head="Jeux vidéo" skills={["Unity", "C#", "NetCode", "Unreal Engine 5", "Blueprint"]} headColor='#2272FF'></TableSkills>
+					<TableSkills head="Outils" skills={["Git", "Docker", "VSCode", "Figma", "Trello"]} headColor='#6E6E6E'></TableSkills>
+					<TableSkills head="Savoir-être" skills={["Travail d'équipe", "Gestion de projet", "Capacité d'adaptation", "Autonomie", "Méthodes agile"]} headColor='#EE72F8'></TableSkills>
 				</div>
 			</section>
 		</main>
@@ -113,6 +85,12 @@ import Hero from '../components/Hero.astro';
 		color: var(--gray-0);
 	}
 
+	.skills {
+		display: grid;
+		margin-left: 50px;
+		margin-right: 50px;
+	}
+
 	.content {
 		grid-column: 2 / 4;
 	}
@@ -145,6 +123,12 @@ import Hero from '../components/Hero.astro';
 		section {
 			display: contents;
 			font-size: var(--text-lg);
+		}
+
+		.skills {
+			display: flex !important;
+			margin-left: 0px;
+			margin-right: 0px;
 		}
 	}
 </style>
