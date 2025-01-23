@@ -49,7 +49,12 @@ const projects = (await getCollection('work'))
 					src="/assets/portrait.jpg"
 				/>
 			</header>
-
+			<p class="resume">
+				Après avoir travaillé 5 ans en tant qu’ingénieur en conception mécanique, 
+				j’ai décidé de me réorienter dans ledéveloppement informatique. Motivé par 
+				la création d’applications, je serai ravi de concevoir des expériences interactives 
+				et captivantes au sein de votre société.
+			</p>
 			<Skills />
 		</div>
 
@@ -87,6 +92,12 @@ const projects = (await getCollection('work'))
 </BaseLayout>
 
 <style>
+	.resume{
+		font-size: var(--text-lg);
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
 	.hero {
 		display: flex;
 		flex-direction: column;
@@ -107,6 +118,11 @@ const projects = (await getCollection('work'))
 	}
 
 	@media (min-width: 50em) {
+		.resume{
+			font-size: var(--text-xl);
+			padding-left: 40px;
+			padding-right: 40px;
+		}
 		.hero {
 			display: grid;
 			grid-template-columns: 6fr 4fr;
