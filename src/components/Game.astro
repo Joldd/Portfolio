@@ -1,0 +1,286 @@
+---
+import Icon from './Icon.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import type { iconPaths } from './IconPaths';
+---
+
+<nav>
+	<div id="game">
+
+		<div id="background"></div>
+		<h2 id="score">0</h2>
+		<div class="marche" id="hero"></div>
+		<div id="rock"></div>
+		<div id="startPanel">
+			<div id="btnStart">Jouer </div>
+			<h3 id="scoreDid">0</h3>
+		</div>
+	</div>
+</nav>
+
+<script>
+	let game = document.getElementById("game")!;
+	let hero = document.getElementById("hero")!;
+	let rock = document.getElementById("rock")!;
+	let score = document.getElementById("score")!;
+	let scoreDid = document.getElementById("scoreDid")!;
+	let pause = true;
+	let btnStart = document.getElementById("btnStart")!;
+	let startPanel = document.getElementById("startPanel")!;
+	let rockSpeed = parseFloat(getComputedStyle(rock).getPropertyValue('--rockSpeed').replace('s', ''));
+	let jumpDuration = parseFloat(getComputedStyle(hero).getPropertyValue('--jumpDuration').replace('s', ''));
+
+	function start(){
+		score.innerText = '0';
+		pause = false;
+		startPanel.style.display = 'none';
+		rock.style.display = '';
+		playAnimation(rock, "rock-animation", rockSpeed);
+	}
+
+	function gameOver(){
+		pause = true;
+		rock.style.display = 'none';
+		scoreDid.style.display = 'flex';
+		startPanel.style.display = 'flex';
+		scoreDid.innerText = score.innerText;
+
+	}
+
+	btnStart.addEventListener('click', start);
+
+	function playAnimation(object: HTMLElement, animation: string, duration: number){
+		object.classList.add(animation);
+		setTimeout(() =>
+			{
+				object.classList.remove(animation);
+				if (object === hero) {
+					object.classList.add('marche');
+				}
+			}
+			, duration * 1000
+		);
+	}
+
+	game.addEventListener('click', (event) => {
+		if (!hero.classList.contains('jump-animation') && !pause) {
+			playAnimation(hero, "jump-animation", jumpDuration);
+		}
+	})
+
+	//ROCK
+	setInterval(() => {
+
+		if (!rock.classList.contains('rock-animation') && !pause) {
+			rock.style.display = '';
+			playAnimation(rock, "rock-animation", rockSpeed);
+		}
+	}, rockSpeed * 1000);
+
+	function checkCollision(){
+		const gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue('width'));
+		const heroBot = parseInt(window.getComputedStyle(hero).getPropertyValue('bottom'));
+		const heroWidth = parseInt(window.getComputedStyle(hero).getPropertyValue('width'));
+		const rockRight = parseInt(window.getComputedStyle(rock).getPropertyValue('right'));
+		const rockHeight = parseInt(window.getComputedStyle(rock).getPropertyValue('height'));
+		if (rockRight > gameWidth - heroWidth && rockRight < gameWidth && heroBot < rockHeight) {
+			gameOver();
+		}
+
+		if (rockRight > gameWidth) {
+			rock.style.display = 'none';
+		}
+	}
+
+	//UPDATE
+	setInterval(() => {
+		if (pause) return;
+
+		checkCollision();
+
+		let s = parseInt(score.innerText);
+		s++;
+		score.innerText = s.toString();
+
+
+	}, 50);
+
+</script>
+
+<style>
+	:root{
+		--rockSpeed: 2s;
+		--jumpDuration: 0.5s;
+	}
+
+	#game {
+		width: 100%;
+		height: 12em;
+		border: 1px solid #3D4663;
+		margin: auto;
+		position: relative;
+		overflow: hidden;
+		border-radius: 1em;
+	}
+
+	#background {
+		position: absolute;
+		top: 0px;
+		width: 2000px;
+		height: 200px;
+		background: url("./assets/background.jpg") repeat-x;
+		animation: slide 1.5s linear infinite;
+	}
+
+	#hero {
+		height: 128px;
+		width: 128px;
+		bottom: 0px;
+		position: absolute;
+		
+		background-size: cover;
+
+	}
+
+	.marche {
+		background-image: url("./assets/Run.png");
+		animation-name: marche;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+		animation-timing-function: steps(8);
+	}
+
+	@keyframes marche {
+		from { background-position: 0 0; }
+		to { background-position: -1024px 0; }
+	}
+
+	.jump-animation {
+		background-image: url("./assets/Jump.png");
+		animation: jump var(--jumpDuration);
+		animation-timing-function: steps(12);
+	}
+
+	@keyframes jump {
+		0% {
+			bottom: 0px;
+			background-position: 0 0;
+		}
+		25% {
+			bottom: 90px;
+		}
+		50% {
+			bottom: 110px;
+		}
+		75% {
+			bottom: 90px;
+		}
+		100% {
+			bottom: 0px;
+			background-position: -1536px 0;
+		}
+	}
+
+	#rock {
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		background-image: url("./assets/rock.png");
+		background-size: cover;
+	}
+
+	#score {
+		top: 5px;
+		text-align: center;
+		position: relative;
+	}
+
+	#scoreDid {
+		display: none;
+		margin-left: 1em;
+		top: 0px;
+		text-align: center;
+		position: relative;
+	}
+
+	#startPanel{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 0px;
+		height: 100%;
+		width: 100%;
+		background-color: #D3C3B4;
+	}
+
+	.rock-animation {
+		animation: rockDash var(--rockSpeed) linear;
+	}
+
+	@keyframes slide {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		transform: translate3d(-532px, 0, 0); /* The image width */
+	}
+	}
+
+	@keyframes rockDash {
+		0% {
+			right: 0%;
+		}
+		100% {
+			right: 110%;
+		}
+	}
+
+	#btnStart {
+		display: flex;
+		align-items: center;
+		place-content: center;
+		text-align: center;
+		padding: 0.56em 2em;
+		gap: 0.8em;
+		color: var(--accent-text-over);
+		text-decoration: none;
+		line-height: 1.1;
+		border-radius: 999rem;
+		overflow: hidden;
+		background: var(--gradient-accent-orange);
+		box-shadow: var(--shadow-md);
+		white-space: nowrap;
+		cursor:pointer;
+	}
+
+	@media (min-width: 20em) {
+		#btnStart {
+			font-size: var(--text-lg);
+		}
+	}
+
+	/* Overlay for hover effects. */
+	#btnStart::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		transition: background-color var(--theme-transition);
+		mix-blend-mode: overlay;
+	}
+
+	#btnStart:focus::after,
+	#btnStart:hover::after {
+		background-color: hsla(var(--gray-999-basis), 0.3);
+	}
+
+	@media (min-width: 50em) {
+		#btnStart {
+			padding: 1.125rem 2.5rem;
+			font-size: var(--text-xl);
+		}
+	}
+</style>
