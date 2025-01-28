@@ -24,9 +24,11 @@ import type { iconPaths } from './IconPaths';
 	let rock = document.getElementById("rock")!;
 	let score = document.getElementById("score")!;
 	let scoreDid = document.getElementById("scoreDid")!;
-	let pause = true;
 	let btnStart = document.getElementById("btnStart")!;
 	let startPanel = document.getElementById("startPanel")!;
+
+	let pause = true;
+
 	let rockSpeed = parseFloat(getComputedStyle(rock).getPropertyValue('--rockSpeed').replace('s', ''));
 	let jumpDuration = parseFloat(getComputedStyle(hero).getPropertyValue('--jumpDuration').replace('s', ''));
 
@@ -35,7 +37,15 @@ import type { iconPaths } from './IconPaths';
 		pause = false;
 		startPanel.style.display = 'none';
 		rock.style.display = '';
+
+		//Set anim speed
 		playAnimation(rock, "rock-animation", rockSpeed);
+	}
+
+	function createRock(){
+		let rock = document.createElement('div');
+		rock.classList.add('rock');
+		game.appendChild(rock);
 	}
 
 	function gameOver(){
@@ -78,11 +88,11 @@ import type { iconPaths } from './IconPaths';
 	}, rockSpeed * 1000);
 
 	function checkCollision(){
-		const gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue('width'));
-		const heroBot = parseInt(window.getComputedStyle(hero).getPropertyValue('bottom'));
-		const heroWidth = parseInt(window.getComputedStyle(hero).getPropertyValue('width'));
-		const rockRight = parseInt(window.getComputedStyle(rock).getPropertyValue('right'));
-		const rockHeight = parseInt(window.getComputedStyle(rock).getPropertyValue('height'));
+		const gameWidth = parseInt(getComputedStyle(game).getPropertyValue('width'));
+		const heroBot = parseInt(getComputedStyle(hero).getPropertyValue('bottom'));
+		const heroWidth = parseInt(getComputedStyle(hero).getPropertyValue('width'));
+		const rockRight = parseInt(getComputedStyle(rock).getPropertyValue('right'));
+		const rockHeight = parseInt(getComputedStyle(rock).getPropertyValue('height'));
 		if (rockRight > gameWidth - heroWidth && rockRight < gameWidth && heroBot < rockHeight) {
 			gameOver();
 		}
@@ -94,7 +104,12 @@ import type { iconPaths } from './IconPaths';
 
 	//UPDATE
 	setInterval(() => {
+
 		if (pause) return;
+
+		//SPEED CHANGE
+		// speedBack+=0.001;
+		// game.style.setProperty('--speedBack', speedBack + 's');
 
 		checkCollision();
 
@@ -104,13 +119,15 @@ import type { iconPaths } from './IconPaths';
 
 
 	}, 50);
-
+	//--rockSpeed: calc(var(--speedBack) * 2.2);
 </script>
 
 <style>
 	:root{
-		--rockSpeed: 3s;
+		--speedBack : 1.5s;
+		--rockSpeed : 2s;
 		--jumpDuration: 0.5s;
+		--siezBack : 532px;
 	}
 
 	#game {
@@ -126,10 +143,10 @@ import type { iconPaths } from './IconPaths';
 	#background {
 		position: absolute;
 		top: 0px;
-		width: 2000px;
+		width: calc(4*var(--siezBack));
 		height: 200px;
 		background: url("/assets/background.jpg") repeat-x;
-		animation: slide 1.15s linear infinite;
+		animation: slide var(--speedBack) linear infinite;
 	}
 
 	#hero {
@@ -227,7 +244,7 @@ import type { iconPaths } from './IconPaths';
 		transform: translate3d(0, 0, 0);
 	}
 	100% {
-		transform: translate3d(-532px, 0, 0); /* The image width */
+		transform: translate3d(calc(-1*var(--siezBack)), 0, 0); /* The image width */
 	}
 	}
 
@@ -236,7 +253,7 @@ import type { iconPaths } from './IconPaths';
 			right: 0%;
 		}
 		100% {
-			right: 110%;
+			right: calc(2.2*var(--siezBack));
 		}
 	}
 
@@ -279,10 +296,25 @@ import type { iconPaths } from './IconPaths';
 		background-color: hsla(var(--gray-999-basis), 0.3);
 	}
 
-	@media (min-width: 50em) {
+	@media all and (orientation:portrait) {
+		:root{
+		--speedBack : 3s;
+		--rockSpeed : 4s;
+	}
+
 		#btnStart {
 			padding: 1.125rem 2.5rem;
 			font-size: var(--text-xl);
+		}
+
+		#rock{
+			height: 30px;
+			width: 30px;
+		}
+
+		#hero{
+			height: 64px;
+			width: 64px;
 		}
 	}
 </style>
