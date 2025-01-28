@@ -42,12 +42,6 @@ import type { iconPaths } from './IconPaths';
 		playAnimation(rock, "rock-animation", rockSpeed);
 	}
 
-	function createRock(){
-		let rock = document.createElement('div');
-		rock.classList.add('rock');
-		game.appendChild(rock);
-	}
-
 	function gameOver(){
 		pause = true;
 		rock.style.display = 'none';
@@ -119,15 +113,15 @@ import type { iconPaths } from './IconPaths';
 
 
 	}, 50);
-	//--rockSpeed: calc(var(--speedBack) * 2.2);
+
 </script>
 
 <style>
 	:root{
 		--speedBack : 1.5s;
-		--rockSpeed : 2s;
+		--rockSpeed : 3.5s;
 		--jumpDuration: 0.5s;
-		--siezBack : 532px;
+		--sizeBack : 532px;
 	}
 
 	#game {
@@ -143,7 +137,7 @@ import type { iconPaths } from './IconPaths';
 	#background {
 		position: absolute;
 		top: 0px;
-		width: calc(4*var(--siezBack));
+		width: calc(4*var(--sizeBack));
 		height: 200px;
 		background: url("/assets/background.jpg") repeat-x;
 		animation: slide var(--speedBack) linear infinite;
@@ -152,7 +146,7 @@ import type { iconPaths } from './IconPaths';
 	#hero {
 		height: 128px;
 		width: 128px;
-		bottom: 0px;
+		bottom: 20px;
 		position: absolute;
 		
 		background-size: cover;
@@ -180,20 +174,20 @@ import type { iconPaths } from './IconPaths';
 
 	@keyframes jump {
 		0% {
-			bottom: 0px;
+			bottom: 20px;
 			background-position: 0 0;
 		}
 		25% {
-			bottom: 90px;
+			bottom: 100px;
 		}
 		50% {
-			bottom: 110px;
+			bottom: 130px;
 		}
 		75% {
-			bottom: 90px;
+			bottom: 100px;
 		}
 		100% {
-			bottom: 0px;
+			bottom: 20px;
 			background-position: -1536px 0;
 		}
 	}
@@ -202,7 +196,7 @@ import type { iconPaths } from './IconPaths';
 		width: 50px;
 		height: 50px;
 		position: absolute;
-		bottom: 0px;
+		bottom: 20px;
 		right: 0px;
 		background-image: url("/assets/rock.png");
 		background-size: cover;
@@ -244,7 +238,7 @@ import type { iconPaths } from './IconPaths';
 		transform: translate3d(0, 0, 0);
 	}
 	100% {
-		transform: translate3d(calc(-1*var(--siezBack)), 0, 0); /* The image width */
+		transform: translate3d(calc(-1*var(--sizeBack)), 0, 0); /* The image width */
 	}
 	}
 
@@ -253,7 +247,7 @@ import type { iconPaths } from './IconPaths';
 			right: 0%;
 		}
 		100% {
-			right: calc(2.2*var(--siezBack));
+			right: calc(2.4*var(--sizeBack));
 		}
 	}
 
