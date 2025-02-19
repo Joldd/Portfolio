@@ -24,6 +24,13 @@ const { href } = Astro.props;
 		background: var(--gradient-accent-orange);
 		box-shadow: var(--shadow-md);
 		white-space: nowrap;
+		font-size: var(--text-base);
+		animation: idle 1.5s infinite alternate;
+	}
+
+	@keyframes idle {
+		from {font-size: var(--text-base); }
+		to { font-size: var(--text-lg); }
 	}
 
 	@media (min-width: 20em) {

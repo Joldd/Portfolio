@@ -1,6 +1,6 @@
 ---
 title: A survivor
-publishDate: 2021-10-02 00:00:00
+publishDate: 2023-10-02 00:00:00
 img: /assets/asurvivor.jpg
 img_alt: vikings
 description: |
