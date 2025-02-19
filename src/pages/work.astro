@@ -54,6 +54,7 @@ projects.forEach(p => {
 	const pillsSelected:string[] = [];
 	const pillSelects = document.querySelectorAll(".pillSelect");
 	const projectsCards = document.querySelectorAll('.project-li')
+	const grid = document.querySelector('.offset');
 	pillSelects.forEach((pill) => {
 		pill.addEventListener("click", () => {
 			if (pill.classList.contains("selected") && pill.textContent) {
@@ -70,12 +71,17 @@ projects.forEach(p => {
 				projectsCards.forEach(e => {
 					(e as HTMLElement).style.display = 'grid';
 				});
+				if (grid){
+					grid.classList.toggle("offset", true);
+				}
 				return;
 			}
 			 projectsCards.forEach(project => {
+				if (grid){
+					grid.classList.toggle("offset", false);
+				}
 				const pills = project.querySelectorAll('.pill');
 				const tags = Array.from(pills).map(p => p.textContent);
-				console.log(pillsSelected);
 				for (const p of pillsSelected) {
 					if (!tags.includes(p)) {
 						(project as HTMLElement).style.display = 'none';
@@ -96,6 +102,7 @@ projects.forEach(p => {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem;
+		justify-content: center;
 	}
 </style>
 

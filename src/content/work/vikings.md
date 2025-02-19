@@ -10,6 +10,7 @@ tags:
   - Unity
   - C#
   - NavMesh
+  - 3D
 ---
 
 J'ai commencé à développé ce jeu pour projet de fin d'études au Gaming Campus Lyon. 

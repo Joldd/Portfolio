@@ -10,6 +10,7 @@ tags:
   - Unity
   - C#
   - Android
+  - 2D
 ---
 
 J'ai réalisé ce jeu en équipe lors d'une Game Jam.
