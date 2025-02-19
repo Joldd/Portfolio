@@ -7,10 +7,19 @@ import ContactCTA from '../components/ContactCTA.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
+import PillSelect from '../components/PillSelect.astro';
 
 const projects = (await getCollection('work')).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
+const allTags: string[] = [];
+projects.forEach(p => {
+	p.data.tags.forEach(t => {
+		if (!allTags.includes(t)) {
+			allTags.push(t);
+		}
+	});
+});
 ---
 
 <BaseLayout
@@ -24,16 +33,71 @@ const projects = (await getCollection('work')).sort(
 				tagline="Voici les différents projets que j'ai pu réaliser au cours des dernières années."
 				align="start"
 			/>
+			<div class="allTags">
+				{allTags.map((t) => <PillSelect>{t}</PillSelect>)}
+			</div>
 			<Grid variant="offset">
 				{
 					projects.map((project) => (
-						<li>
+						<li class="project-li" >
 							<PortfolioPreview project={project} />
 						</li>
 					))
 				}
-			</Grid>
+
 		</main>
 		<ContactCTA />
 	</div>
 </BaseLayout>
+
+<script>
+	const pillsSelected:string[] = [];
+	const pillSelects = document.querySelectorAll(".pillSelect");
+	const projectsCards = document.querySelectorAll('.project-li')
+	pillSelects.forEach((pill) => {
+		pill.addEventListener("click", () => {
+			if (pill.classList.contains("selected") && pill.textContent) {
+				pill.classList.remove("selected");
+				const index = pillsSelected.indexOf(pill.textContent);
+				pillsSelected.splice(index, 1);
+			} else {
+				pill.classList.add("selected");
+				if (pill.textContent) {
+					pillsSelected.push(pill.textContent);
+				}
+			}
+			if (pillsSelected.length === 0) {	
+				projectsCards.forEach(e => {
+					(e as HTMLElement).style.display = 'grid';
+				});
+				return;
+			}
+			 projectsCards.forEach(project => {
+				const pills = project.querySelectorAll('.pill');
+				const tags = Array.from(pills).map(p => p.textContent);
+				console.log(pillsSelected);
+				for (const p of pillsSelected) {
+					if (!tags.includes(p)) {
+						(project as HTMLElement).style.display = 'none';
+						break;
+					}
+					else {
+						(project as HTMLElement).style.display = 'grid';
+					}
+				}
+			});
+		});
+	});
+
+</script>
+
+<style>
+	.allTags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+</style>
+
+
+

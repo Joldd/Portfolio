@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import PillSmall from './PillSmall.astro';
 
 interface Props {
 	project: CollectionEntry<'work'>;
@@ -11,6 +12,9 @@ const { data, id } = Astro.props.project;
 <a class="card" href={`/work/${id}`}>
 	<span class="title">{data.title}</span>
 	<img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
+	<div class="tags">
+		{data.tags.map((t) => <PillSmall>{t}</PillSmall>)}
+	</div>
 </a>
 
 <style>
@@ -28,10 +32,19 @@ const { data, id } = Astro.props.project;
 		font-size: var(--text-lg);
 		font-weight: 500;
 		transition: box-shadow var(--theme-transition);
+		position: relative;
 	}
 
 	.card:hover {
 		box-shadow: var(--shadow-md);
+	}
+
+	.tags {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		margin-bottom: 10px;
+		margin-right: 10px;
 	}
 
 	.title {
