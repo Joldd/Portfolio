@@ -20,13 +20,7 @@ export class Button {
             fontSize: 36,
             fontStyle: 'italic',
             fontWeight: 'bold',
-            stroke: { color: '#4a1850', width: 5, join: 'round' },
-            dropShadow: {
-                color: '#000000',
-                blur: 4,
-                angle: Math.PI / 6,
-                distance: 6,
-            },
+            fill: '#4a1850',
             wordWrap: true,
             wordWrapWidth: 440,
         });
@@ -34,11 +28,10 @@ export class Button {
             text: this.text,
             style 
         });
-        this.textObj.tint = 0xffffff;
         this.textObj.anchor.set(0.5);
         this.textObj.x = this.posX;
         this.textObj.y = this.posY;
-        this.obj = new Graphics().roundRect(this.posX - this.width/2, this.posY - this.height/2, this.width, this.height, this.radius).fill({ color: '#1B1B1B' });
+        this.obj = new Graphics().roundRect(this.posX - this.width/2, this.posY - this.height/2, this.width, this.height, this.radius).fill({ color: '#d68334' });
         app.stage.addChild(this.obj);
         app.stage.addChild(this.textObj);
 

@@ -8,6 +8,7 @@ import { addMoon } from './addMoon.js';
 import { Player } from './Player.js';
 import { Car } from './Car.js';
 import { Button } from './Button.js';
+import { Score } from './Score.js';
 
 // Create a PixiJS application.
 const app = new Application();
@@ -16,6 +17,7 @@ const game = document.getElementById('game');
 let player = null;
 let car = null ;
 let btn = null;
+let score = null;
 
 // Asynchronous IIFE
 (async () => {
@@ -37,6 +39,9 @@ let btn = null;
     car = new Car(app);
     await car.createCar();
 
+    score = new Score();
+    score.Start(app);
+
     // Input
     bg.on('pointerdown', () => {
         if (!player.isJumping) player.Jump();
@@ -46,6 +51,7 @@ let btn = null;
     app.ticker.add((delta) => {
         player.Update(delta);
         car.Update(delta);
+        score.Update(delta);
 
         if (testCollision(player.GetBounds(), car.sprite.getBounds()))
         {
@@ -71,8 +77,8 @@ function testCollision(bounds1, bounds2)
 
 function gamePause(){
     app.ticker.stop();
-    btn = new Button(app.screen.width / 2, app.screen.height / 2, 200, 50, 20);
-    btn.text = 'Restart';
+    btn = new Button(app.screen.width / 2, app.screen.height / 2, 225, 70, 20);
+    btn.text = 'Rejouer';
     btn.onClick = (() => {Restart()});
     btn.Start(app);
 }
@@ -86,4 +92,5 @@ function Restart(){
     player.speedJump = 0;
     player.SwitchToAnim(player.animRun);
     btn.Destroy(app);
+    score.Loose();
 }

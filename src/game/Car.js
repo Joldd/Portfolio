@@ -11,7 +11,7 @@ export class Car {
         this.sprite.x -= time.deltaTime * this.speed;
 
         if (this.sprite.x < -this.app.screen.width){
-            this.sprite.x = this.app.screen.width;
+            this.sprite.x = this.app.screen.width + this.sprite.width;
         }
     }
 
@@ -23,7 +23,7 @@ export class Car {
         car.anchor.x = 0;
         car.anchor.y = 1;
         car.scale.x *= -1;
-        car.x = this.app.screen.width;
+        car.x = this.app.screen.width + car.width;
         car.y = this.app.screen.height / 1.07;
         this.app.stage.addChild(car);
     }
