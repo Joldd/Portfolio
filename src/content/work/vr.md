@@ -1,7 +1,7 @@
 ---
 title: Application VR - Revue de conception
 publishDate: 2022-03-02 00:00:00
-img: /assets/vr.jpg
+img: /assets/portfolio/vr.jpg
 img_alt: VR
 description: |
   Réalisation d'une application en réalité virtuelle permettant d'effectuer une revue de conception

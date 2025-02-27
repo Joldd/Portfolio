@@ -1,7 +1,7 @@
 ---
 title: Configurateur de lignes industriels
 publishDate: 2020-03-02 00:00:00
-img: /assets/configurateur.jpg
+img: /assets/portfolio/configurateur.jpg
 img_alt: Configurateur
 description: |
   Réalisation d'une application d'avant projet permettant de créer une ligne industrielle en 3D et d'obtenir son rapport détaillé.

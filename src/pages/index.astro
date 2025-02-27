@@ -12,6 +12,7 @@ import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Game from '../components/Game.astro';
+import G from '../game/game.astro';
 
 // Page section components
 import ContactCTA from '../components/ContactCTA.astro';
@@ -29,7 +30,7 @@ const projects = (await getCollection('work'))
 <BaseLayout>
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
-			<Game></Game>
+			<G></G>
 			<header class="hero">
 				<Hero
 					title="Julien Coutouly"
@@ -46,7 +47,7 @@ const projects = (await getCollection('work'))
 					alt="Julien Coutouly"
 					width="480"
 					height="620"
-					src="/assets/portrait.jpg"
+					src="/assets/portfolio/portrait.jpg"
 				/>
 			</header>
 			<p class="resume">

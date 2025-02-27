@@ -1,7 +1,7 @@
 ---
 title: Stockler
 publishDate: 2025-10-02 00:00:00
-img: /assets/stockler.jpg
+img: /assets/portfolio/stockler.jpg
 img_alt: stockler
 description: |
   Ce site web permet de référencer toutes les actions des entreprises

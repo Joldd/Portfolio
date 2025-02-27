@@ -1,7 +1,7 @@
 ---
 title: A survivor
 publishDate: 2023-10-02 00:00:00
-img: /assets/asurvivor.jpg
+img: /assets/portfolio/asurvivor.jpg
 img_alt: vikings
 description: |
   Jeu de survie où le but est de collecter des ressources afin de gagner des compétences pour survivre toujours plus longtemps.

@@ -1,7 +1,7 @@
 ---
 title: Application pour un musée
 publishDate: 2023-12-01 00:00:00
-img: /assets/museum.jpg
+img: /assets/portfolio/museum.jpg
 img_alt: A bright pink sheet of paper used to wrap flowers curves in front of rich blue background
 description: |
   Rélisation d'une application présentant différents éléments visuels et textuels du musée avec un quiz pour valider nos connaissances.

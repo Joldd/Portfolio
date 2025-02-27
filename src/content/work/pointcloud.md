@@ -1,7 +1,7 @@
 ---
 title: Visionneuse de nuages de points
 publishDate: 2019-10-02 00:00:00
-img: /assets/pointcloud.jpg
+img: /assets/portfolio/pointcloud.jpg
 img_alt: pointcloud
 description: |
   Ce site web permet de naviguer en 3D dans un nuage de points avec des outils de mesures, coupe, tracés, ...

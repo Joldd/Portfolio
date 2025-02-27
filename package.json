@@ -10,7 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@pixi/ui": "^2.2.2",
     "alpinejs": "^3.14.8",
-    "astro": "^5.1.7"
+    "astro": "^5.1.7",
+    "pixi.js": "^8.8.1"
   }
 }
