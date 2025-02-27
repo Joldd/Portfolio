@@ -1,4 +1,5 @@
-import { Graphics, Text, TextStyle } from 'pixi.js';
+import { Text, TextStyle } from 'pixi.js';
+import * as utils from './Utils.js';
 
 export class Score {
     constructor() {
@@ -24,6 +25,7 @@ export class Score {
             wordWrap: true,
             wordWrapWidth: 440,
         });
+        if (utils.isMobileDevice()) style.fontSize = 20;
         this.textObj = new Text({ 
             text: this.score.toString(),
             style 

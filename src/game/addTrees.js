@@ -1,9 +1,11 @@
 import { Graphics } from 'pixi.js';
+import * as utils from './Utils.js';
 
 export function addTrees(app)
 {
     // Width of each tree.
-    const treeWidth = 200;
+    let treeWidth = 200;
+    if (utils.isMobileDevice()) treeWidth = 100;
 
     // Position of the base of the trees on the y-axis.
     const y = app.screen.height - 20;
@@ -20,7 +22,8 @@ export function addTrees(app)
     for (let index = 0; index < count; index++)
     {
         // Randomize the height of each tree within a constrained range.
-        const treeHeight = 225 + Math.random() * 50;
+        let treeHeight = 225 + Math.random() * 50;
+        if (utils.isMobileDevice()) treeHeight = 100 + Math.random() * 50;
 
         // Create a tree instance.
         const tree = createTree(treeWidth, treeHeight);

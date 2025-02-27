@@ -1,4 +1,5 @@
 import { Assets, Sprite } from 'pixi.js';
+import * as utils from './Utils.js';
 
 export async function addMoon(app) {
      // Load the moon texture
@@ -10,10 +11,18 @@ export async function addMoon(app) {
      // Center the sprite's anchor point
      moon.anchor.set(0.5);
     
-     moon.scale.set(0.7);
+     if (utils.isMobileDevice()) {
+         moon.scale.set(0.4);
+     }
+     else moon.scale.set(0.7);
+
     // Position the moon.
-    moon.x = 3 *app.screen.width / 4 + 100;
-    moon.y = app.screen.height / 6;
+     if (utils.isMobileDevice()) {
+          moon.x = 1 * app.screen.width / 4;
+     }
+     else moon.x = 3 * app.screen.width / 4;
+
+     moon.y = app.screen.height / 6;
  
      app.stage.addChild(moon);
 }

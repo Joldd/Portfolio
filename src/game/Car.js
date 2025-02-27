@@ -1,4 +1,5 @@
 import { Assets, Sprite} from 'pixi.js';
+import * as utils from './Utils.js';
 
 export class Car {
     constructor(app) {
@@ -19,7 +20,12 @@ export class Car {
         const texture = await Assets.load('./assets/game/car.png');
         const car = new Sprite(texture);
         this.sprite = car;
-        car.scale.set(0.25);
+        if (utils.isMobileDevice()) 
+        {
+            this.speed = 8;
+            car.scale.set(0.15);
+        }
+        else car.scale.set(0.25);
         car.anchor.x = 0;
         car.anchor.y = 1;
         car.scale.x *= -1;

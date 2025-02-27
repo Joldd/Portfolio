@@ -1,4 +1,5 @@
 import { Graphics } from 'pixi.js';
+import * as utils from './Utils.js';
 
 export function addGround(app)
 {
@@ -31,5 +32,6 @@ export function addGround(app)
 
 function createStripe(app){
     const stripe = new Graphics().rect(0, 46.5 * app.screen.height / 50, app.screen.width / 50, app.screen.height / 50).fill({ color: '#FFFFFF' });
+    if (utils.isMobileDevice()) stripe.width = app.screen.width / 20;
     return stripe;
 }

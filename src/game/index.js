@@ -87,7 +87,7 @@ function Restart(){
     app.ticker.start();
     player.currentSprite.tint = 0xffffff;
     player.currentSprite.y = player.startY;
-    car.sprite.x = app.screen.width;
+    car.sprite.x = app.screen.width + car.sprite.width;
     player.isJumping = false;
     player.speedJump = 0;
     player.SwitchToAnim(player.animRun);

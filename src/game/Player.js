@@ -1,4 +1,5 @@
 import { AnimatedSprite, Assets, Texture, Spritesheet, Graphics } from 'pixi.js';
+import * as utils from './Utils.js';
 
 // Class for handling the character Spine and its animations.
 export class Player {
@@ -74,6 +75,8 @@ export class Player {
         this.currentSprite.animationSpeed = 0.2;
         this.currentSprite.play();
         this.app.stage.addChild(this.currentSprite);
+
+        if (utils.isMobileDevice()) this.currentSprite.scale.set(0.5);
     }
 
     GetBounds() 
@@ -94,6 +97,7 @@ export class Player {
         this.currentSprite.x = this.startX;
         this.currentSprite.y = this.startY;
         this.currentSprite.animationSpeed = 0.2;
+        if (utils.isMobileDevice()) this.currentSprite.scale.set(0.5);
         this.currentSprite.play();
         this.app.stage.addChild(this.currentSprite);
     }
@@ -101,7 +105,16 @@ export class Player {
     Jump() {
         this.SwitchToAnim(this.animJump);
         this.isJumping = true;
-        this.speedJump = -10;      
+        if (utils.isMobileDevice()) 
+        {
+            this.speedJump = -6;
+            this.gravity = 0.3;
+        }
+        else 
+        {
+            this.speedJump = -10;
+            this.gravity = 0.5;
+        }     
     }
 
     Update(delta){
