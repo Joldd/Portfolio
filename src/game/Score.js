@@ -16,6 +16,7 @@ export class Score {
             fontStyle: 'italic',
             fontWeight: 'bold',
             stroke: { color: '#4a1850', width: 5, join: 'round' },
+            fill: '#38803c',
             dropShadow: {
                 color: '#000000',
                 blur: 4,
