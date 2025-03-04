@@ -50,7 +50,17 @@ const { Content } = await render(entry);
 					<div class="content">
 						<Content />
 					</div>
+					{entry.data.github ? 
+						<div class="linkGit">
+							<p>Lien Github : </p>
+							<a href={entry.data.github}>
+								<Icon icon="github-logo" size="2em" />
+							</a> 
+						</div>
+						: <div></div>
+					}
 				</div>
+				
 			</main>
 		</div>
 		<ContactCTA />
@@ -74,6 +84,14 @@ const { Content } = await render(entry);
 		gap: 1.5rem;
 		justify-content: space-between;
 		align-items: center;
+	}
+
+	.linkGit{
+		display: flex !important;
+		align-items: center;
+	}
+	.linkGit p {
+		margin-right: 0.5rem;;
 	}
 
 	.tags {

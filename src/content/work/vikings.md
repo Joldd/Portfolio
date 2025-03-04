@@ -11,6 +11,7 @@ tags:
   - C#
   - NavMesh
   - 3D
+github: https://github.com/Joldd/Vikings
 ---
 
 J'ai commencé à développé ce jeu pour projet de fin d'études au Gaming Campus Lyon. 
