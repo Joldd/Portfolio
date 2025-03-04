@@ -21,5 +21,3 @@ L'application permet :
 * De se déplacer par téléportation
 * De rédiger un rapport de revue de conception
 * De faire des vues en coupe
-
-

@@ -24,7 +24,7 @@ Pour cela il faut tracer leurs déplacements à l'aide de la souris pour ensuite
 Il est possible de modifier la vitesse du jeu ainsi que de mettre pause afin de prévoir les futurs déplacements de nos troupes.
 
 Viking Versus Vicars est un jeu d'anticipation où le but va être de prendre l'ennemi à revers afin de faire pencher la balance de notre côté.
-En effet des bonus seront attribué à vos troupes si elles engagent les combats sur les côtés ou l'arrière des troupes ennemies.
+En effet des bonus seront attribués à vos troupes si elles engagent les combats sur les côtés ou l'arrière des troupes ennemies.
 
 Pour construire de nouveaux bâtiments il faudra prendre le contrôle de zones de contruction.
 
