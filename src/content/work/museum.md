@@ -8,7 +8,6 @@ description: |
 tags:
   - Unity
   - C#
-  - 2D
   - Android
 ---
 

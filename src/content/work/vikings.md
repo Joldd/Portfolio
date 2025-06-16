@@ -10,7 +10,6 @@ tags:
   - Unity
   - C#
   - NavMesh
-  - 3D
 github: https://github.com/Joldd/Vikings
 ---
 

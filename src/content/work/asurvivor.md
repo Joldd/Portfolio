@@ -6,11 +6,9 @@ img_alt: vikings
 description: |
   Jeu de survie où le but est de collecter des ressources afin de gagner des compétences pour survivre toujours plus longtemps.
 tags:
-  - Game
   - Unity
   - C#
   - Android
-  - 2D
 ---
 
 J'ai réalisé ce jeu en équipe lors d'une Game Jam.

@@ -9,7 +9,6 @@ tags:
   - Unity
   - C#
   - Blender
-  - 3D
 ---
 
 Ce projet vise les clients industriels qui vendent des lignes de machines industrielles.

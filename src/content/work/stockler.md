@@ -1,6 +1,6 @@
 ---
 title: Stockler
-publishDate: 2025-10-02 00:00:00
+publishDate: 2023-10-02 00:00:00
 img: /assets/portfolio/stockler.jpg
 img_alt: stockler
 description: |
@@ -8,9 +8,7 @@ description: |
 tags:
   - Web
   - React
-  - Javascript
-  - Css
-  - Html
+  - Vite
   - Node.js
   - API Rest
 github: https://github.com/Joldd/Stockler

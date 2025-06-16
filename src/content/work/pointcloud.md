@@ -1,6 +1,6 @@
 ---
 title: Visionneuse de nuages de points
-publishDate: 2019-10-02 00:00:00
+publishDate: 2025-10-02 00:00:00
 img: /assets/portfolio/pointcloud.jpg
 img_alt: pointcloud
 description: |
@@ -8,12 +8,9 @@ description: |
 tags:
   - Web
   - Rust
-  - Javascript
-  - Css
-  - Html
+  - Bootstrap
   - Three.js
   - PostgreSQL
-  - 3D
 ---
 
 Ce site web est à destination d'un grand panel de clients.

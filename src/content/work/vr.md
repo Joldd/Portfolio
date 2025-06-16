@@ -10,7 +10,6 @@ tags:
   - C#
   - Netcode
   - VR
-  - 3D
 ---
 
 Ce projet avait pour but de permettre aux clients de travailler à plusieurs sur un assemblage 3D.
