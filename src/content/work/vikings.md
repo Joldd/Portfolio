@@ -1,6 +1,6 @@
 ---
 title: Vikings Versus Vicars
-publishDate: 2019-11-02 00:00:00
+publishDate: 2023-11-02 00:00:00
 img: /assets/portfolio/vikings.jpg
 img_alt: vikings
 description: |

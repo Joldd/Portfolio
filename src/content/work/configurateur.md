@@ -1,6 +1,6 @@
 ---
 title: Configurateur de lignes industriels
-publishDate: 2020-03-02 00:00:00
+publishDate: 2023-03-02 00:00:00
 img: /assets/portfolio/configurateur.jpg
 img_alt: Configurateur
 description: |
