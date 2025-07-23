@@ -1,8 +1,8 @@
-import { Application, Graphics } from 'pixi.js';
+import { Application } from 'pixi.js';
 import { addBackGround } from './addBackGround.js';
 import { addStars } from './addStars.js';
-import { addMountains } from './addMountain.js';
-import { addTrees } from './addTrees.js';
+import { Mountains } from './Mountains.js';
+import { Trees } from './Trees.js';
 import { addGround } from './addGround.js';
 import { addMoon } from './addMoon.js';
 import { Player } from './Player.js';
@@ -15,9 +15,12 @@ const app = new Application();
 
 const game = document.getElementById('game');
 let player = null;
-let car = null ;
+let car = null;
+let trees = null;
+let mountains = null;
 let btn = null;
 let score = null;
+let increaseSpeed = 0.005;
 
 // Asynchronous IIFE
 (async () => {
@@ -30,12 +33,18 @@ let score = null;
     const bg = addBackGround(app);
     addStars(app);
     addMoon(app);
-    addMountains(app);
-    addTrees(app);
+
+    mountains = new Mountains(app);
+    mountains.AddMountains();
+
     addGround(app);
+
+    trees = new Trees(app);
+    trees.AddTrees();
 
     player = new Player(app);
     await player.createAnimRun();
+
     car = new Car(app);
     await car.createCar();
 
@@ -49,24 +58,23 @@ let score = null;
 
     // Loop
     app.ticker.add((delta) => {
+        trees.Update(delta, increaseSpeed);
+        mountains.Update(delta, increaseSpeed);
         player.Update(delta);
-        car.Update(delta);
+        car.Update(delta, increaseSpeed);
         score.Update(delta);
 
-        if (testCollision(player.GetBounds(), car.sprite.getBounds()))
-        {
+        if (testCollision(player.GetBounds(), car.sprite.getBounds())) {
             gamePause();
             player.currentSprite.tint = 0xff0000;
         }
-        else
-        {
+        else {
             player.currentSprite.tint = 0xffffff;
         }
     });
 })();
 
-function testCollision(bounds1, bounds2)
-{
+function testCollision(bounds1, bounds2) {
     return (
         bounds1.x < bounds2.x + bounds2.width
         && bounds1.x + bounds1.width > bounds2.x
@@ -75,22 +83,20 @@ function testCollision(bounds1, bounds2)
     );
 }
 
-function gamePause(){
+function gamePause() {
     app.ticker.stop();
     btn = new Button(app.screen.width / 2, app.screen.height / 2, 225, 70, 20);
     btn.text = 'Rejouer';
-    btn.onClick = (() => {Restart()});
+    btn.onClick = (() => { Restart() });
     btn.Start(app);
 }
 
-function Restart(){
+function Restart() {
     app.ticker.start();
-    player.currentSprite.tint = 0xffffff;
-    player.currentSprite.y = player.startY;
-    car.sprite.x = app.screen.width + car.sprite.width;
-    player.isJumping = false;
-    player.speedJump = 0;
-    player.SwitchToAnim(player.animRun);
+    player.Restart();
+    car.Restart();
+    mountains.Restart();
+    trees.Restart();
     btn.Destroy(app);
     score.Loose();
 }

@@ -1,27 +1,31 @@
-import { Assets, Sprite} from 'pixi.js';
+import { Assets, Sprite } from 'pixi.js';
 import * as utils from './Utils.js';
 
 export class Car {
     constructor(app) {
         this.app = app;
-        this.sprite = null; 
+        this.sprite = null;
         this.speed = 13;
     }
 
-    Update(time){
-        this.sprite.x -= time.deltaTime * this.speed;
+    Restart() {
+        this.sprite.x = this.app.screen.width + this.sprite.width;
+        this.speed = 13;
+    }
 
-        if (this.sprite.x < -this.app.screen.width){
+    Update(time, increaseSpeed) {
+        this.sprite.x -= time.deltaTime * this.speed;
+        this.speed += increaseSpeed; // Increment speed slightly each frame.
+        if (this.sprite.x < -this.app.screen.width) {
             this.sprite.x = this.app.screen.width + this.sprite.width;
         }
     }
 
-    async createCar(){
+    async createCar() {
         const texture = await Assets.load('./assets/game/car.png');
         const car = new Sprite(texture);
         this.sprite = car;
-        if (utils.isMobileDevice()) 
-        {
+        if (utils.isMobileDevice()) {
             this.speed = 8;
             car.scale.set(0.15);
         }

@@ -79,8 +79,7 @@ export class Player {
         if (utils.isMobileDevice()) this.currentSprite.scale.set(0.5);
     }
 
-    GetBounds() 
-    {
+    GetBounds() {
         let bounds = this.currentSprite.getBounds();
         bounds.x += 40;
         bounds.width -= 80;
@@ -105,20 +104,26 @@ export class Player {
     Jump() {
         this.SwitchToAnim(this.animJump);
         this.isJumping = true;
-        if (utils.isMobileDevice()) 
-        {
+        if (utils.isMobileDevice()) {
             this.speedJump = -6;
             this.gravity = 0.3;
         }
-        else 
-        {
+        else {
             this.speedJump = -10;
             this.gravity = 0.5;
-        }     
+        }
     }
 
-    Update(delta){
-        if (this.isJumping){
+    Restart() {
+        this.currentSprite.tint = 0xffffff;
+        this.currentSprite.y = this.startY;
+        this.isJumping = false;
+        this.speedJump = 0;
+        this.SwitchToAnim(this.animRun);
+    }
+
+    Update(delta) {
+        if (this.isJumping) {
             this.currentSprite.y += this.speedJump * delta.deltaTime;
             this.speedJump += this.gravity * delta.deltaTime;
 
