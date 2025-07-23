@@ -1,4 +1,4 @@
-import { Application } from 'pixi.js';
+import { Application, Graphics } from 'pixi.js';
 import { addBackGround } from './addBackGround.js';
 import { addStars } from './addStars.js';
 import { Mountains } from './Mountains.js';
@@ -66,8 +66,11 @@ let increaseSpeed = 0.005;
         car.Update(delta, increaseSpeed);
         score.Update(delta);
         ground.Update(delta, increaseSpeed);
-
-        if (testCollision(player.GetBounds(), car.sprite.getBounds())) {
+        if (testCollision(player.GetBounds(), car.GetBounds())) {
+            // let cool = new Graphics().rect(player.GetBounds().x, player.GetBounds().y, player.GetBounds().width, player.GetBounds().height).fill({ color: 0xff0000, alpha: 0.5 });
+            // let col = new Graphics().rect(car.GetBounds().x, car.GetBounds().y, car.GetBounds().width, car.GetBounds().height).fill({ color: 0xffff00, alpha: 0.5 });
+            // app.stage.addChild(cool);
+            // app.stage.addChild(col);
             gamePause();
             player.currentSprite.tint = 0xff0000;
         }

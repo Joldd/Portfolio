@@ -17,7 +17,6 @@ export class Ground {
 
         for (let i = 0; i < this.count; i++) {
             const s = this.CreateStripe(this.app);
-            console.log(s);
             s.x = i * this.spacing;
             this.stripes.push(s);
             this.app.stage.addChild(s);
