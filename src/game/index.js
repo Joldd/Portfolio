@@ -3,7 +3,7 @@ import { addBackGround } from './addBackGround.js';
 import { addStars } from './addStars.js';
 import { Mountains } from './Mountains.js';
 import { Trees } from './Trees.js';
-import { addGround } from './addGround.js';
+import { Ground } from './Ground.js';
 import { addMoon } from './addMoon.js';
 import { Player } from './Player.js';
 import { Car } from './Car.js';
@@ -15,6 +15,7 @@ const app = new Application();
 
 const game = document.getElementById('game');
 let player = null;
+let ground = null;
 let car = null;
 let trees = null;
 let mountains = null;
@@ -37,7 +38,8 @@ let increaseSpeed = 0.005;
     mountains = new Mountains(app);
     mountains.AddMountains();
 
-    addGround(app);
+    ground = new Ground(app);
+    ground.AddRoad();
 
     trees = new Trees(app);
     trees.AddTrees();
@@ -63,6 +65,7 @@ let increaseSpeed = 0.005;
         player.Update(delta);
         car.Update(delta, increaseSpeed);
         score.Update(delta);
+        ground.Update(delta, increaseSpeed);
 
         if (testCollision(player.GetBounds(), car.sprite.getBounds())) {
             gamePause();
@@ -94,6 +97,7 @@ function gamePause() {
 function Restart() {
     app.ticker.start();
     player.Restart();
+    ground.Restart();
     car.Restart();
     mountains.Restart();
     trees.Restart();
