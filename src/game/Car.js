@@ -5,6 +5,9 @@ export class Car {
     constructor(app) {
         this.app = app;
         this.sprite = null;
+        this.currentTexture = null;
+        this.textureRed = null;
+        this.textureBlue = null;
         this.speed = 13;
     }
 
@@ -18,12 +21,15 @@ export class Car {
         this.speed += increaseSpeed; // Increment speed slightly each frame.
         if (this.sprite.x < -this.app.screen.width) {
             this.sprite.x = this.app.screen.width + this.sprite.width;
+            this.sprite.texture = Math.random() < 0.5 ? this.textureRed : this.textureBlue;
         }
     }
 
     async createCar() {
-        const texture = await Assets.load('./assets/game/car.png');
-        const car = new Sprite(texture);
+        this.textureRed = await Assets.load('./assets/game/car.png');
+        this.textureBlue = await Assets.load('./assets/game/carBlue.png');
+        Math.random() < 0.5 ? this.currentTexture = this.textureRed : this.currentTexture = this.textureBlue;
+        const car = new Sprite(this.currentTexture);
         this.sprite = car;
         if (utils.isMobileDevice()) {
             this.speed = 8;
