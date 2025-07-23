@@ -47,6 +47,10 @@ let increaseSpeed = 0.005;
     player = new Player(app);
     await player.createAnimRun();
 
+    // let cool = new Graphics().rect(player.GetBounds().x, player.GetBounds().y, player.GetBounds().width, player.GetBounds().height).fill({ color: 0xff0000, alpha: 0.5 });
+    // app.stage.addChild(cool);
+
+
     car = new Car(app);
     await car.createCar();
 

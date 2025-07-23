@@ -18,7 +18,11 @@ export class Car {
     Restart() {
         this.sprite.x = this.startX;
         this.sprite.y = this.startY;
-        this.speed = 13;
+        this.isJumping = false;
+        if (utils.isMobileDevice())
+            this.speed = 8;
+        else
+            this.speed = 13;
     }
 
     Update(time, increaseSpeed) {
@@ -32,7 +36,12 @@ export class Car {
         }
         if (this.sprite.x < 3 * this.app.screen.width / 5 && !this.isJumping && this.sprite.texture === this.textureBlue) {
             this.isJumping = true;
-            this.speedJump = -11;
+            if (utils.isMobileDevice()) {
+                this.speedJump = -8;
+            }
+            else {
+                this.speedJump = -11;
+            }
         }
         if (this.isJumping) {
             this.sprite.y += this.speedJump * time.deltaTime;

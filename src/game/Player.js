@@ -81,10 +81,18 @@ export class Player {
 
     GetBounds() {
         let bounds = this.currentSprite.getBounds();
-        bounds.x += 55;
-        bounds.width -= 90;
-        bounds.y += 70;
-        bounds.height -= 70;
+        if (!utils.isMobileDevice()) {
+            bounds.x += 55;
+            bounds.width -= 90;
+            bounds.y += 70;
+            bounds.height -= 70;
+        }
+        else {
+            bounds.x += 20;
+            bounds.width -= 40;
+            bounds.y += 35;
+            bounds.height -= 40;
+        }
         return bounds;
     }
 
