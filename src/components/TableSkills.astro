@@ -10,12 +10,12 @@ const { head, skills = [], headColor = "rgb(255 100 100)" } = Astro.props;
 
 ---
 <table>
-	<tr>
+	<tr style="height:1rem; white-space: nowrap;">
 		<th>{head}</th>
 	</tr>
 	{
 		skills.map((skill) => (
-			<tr>
+			<tr style="white-space: nowrap;">
 				<td>{skill}</td>
 			</tr>
 		))
