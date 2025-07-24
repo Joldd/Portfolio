@@ -47,14 +47,15 @@ let increaseSpeed = 0.003;
     player = new Player(app);
     await player.createAnimRun();
 
+        //DEBUG COLLISION
     // let cool = new Graphics().rect(player.GetBounds().x, player.GetBounds().y, player.GetBounds().width, player.GetBounds().height).fill({ color: 0xff0000, alpha: 0.5 });
     // app.stage.addChild(cool);
-
 
     car = new Car(app);
     await car.createCar();
 
     score = new Score();
+    score.bestScore = getBestScore();
     score.Start(app);
 
     // Input
@@ -71,12 +72,16 @@ let increaseSpeed = 0.003;
         score.Update(delta);
         ground.Update(delta, increaseSpeed);
         if (testCollision(player.GetBounds(), car.GetBounds())) {
+
+                //DEBUG COLLISION
             // let cool = new Graphics().rect(player.GetBounds().x, player.GetBounds().y, player.GetBounds().width, player.GetBounds().height).fill({ color: 0xff0000, alpha: 0.5 });
             // let col = new Graphics().rect(car.GetBounds().x, car.GetBounds().y, car.GetBounds().width, car.GetBounds().height).fill({ color: 0xffff00, alpha: 0.5 });
             // app.stage.addChild(cool);
             // app.stage.addChild(col);
+
             gamePause();
             player.currentSprite.tint = 0xff0000;
+            saveBestScore(score.score);
         }
         else {
             player.currentSprite.tint = 0xffffff;
@@ -110,4 +115,16 @@ function Restart() {
     trees.Restart();
     btn.Destroy(app);
     score.Loose();
+}
+
+function saveBestScore(score) {
+    const currentBest = getBestScore();
+    if (score > currentBest) {
+        localStorage.setItem('bestScore', score.toString());
+    }
+}
+
+function getBestScore() {
+    const saved = localStorage.getItem('bestScore');
+    return saved ? parseInt(saved) : 0;
 }
