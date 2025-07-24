@@ -21,7 +21,7 @@ let trees = null;
 let mountains = null;
 let btn = null;
 let score = null;
-let increaseSpeed = 0.005;
+let increaseSpeed = 0.003;
 
 // Asynchronous IIFE
 (async () => {

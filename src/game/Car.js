@@ -13,12 +13,14 @@ export class Car {
         this.isJumping = false;
         this.startY = 0;
         this.startX = 0;
+        this.count = 0;
     }
 
     Restart() {
         this.sprite.x = this.startX;
         this.sprite.y = this.startY;
         this.isJumping = false;
+        this.count = 0;
         if (utils.isMobileDevice())
             this.speed = 8;
         else
@@ -32,9 +34,12 @@ export class Car {
             this.isJumping = false;
             this.sprite.x = this.startX;
             this.sprite.y = this.startY;
-            this.sprite.texture = Math.random() < 0.5 ? this.textureRed : this.textureBlue;
+            if (this.count == 3) this.sprite.texture = this.textureBlue;
+            else if (this.count > 3) this.sprite.texture = Math.random() < 0.5 ? this.textureRed : this.textureBlue;
+            else this.sprite.texture = this.textureRed;
+            this.count++;
         }
-        if (this.sprite.x < 3 * this.app.screen.width / 5 && !this.isJumping && this.sprite.texture === this.textureBlue) {
+        if (this.sprite.x < this.app.screen.width / 2 && !this.isJumping && this.sprite.texture === this.textureBlue) {
             this.isJumping = true;
             if (utils.isMobileDevice()) {
                 this.speedJump = -8;
@@ -64,11 +69,9 @@ export class Car {
     }
 
     async createCar() {
-        let texture = null;
         this.textureRed = await Assets.load('./assets/game/car.png');
         this.textureBlue = await Assets.load('./assets/game/carBlue.png');
-        texture = Math.random() < 0.5 ? this.textureRed : this.textureBlue;
-        const car = new Sprite(texture);
+        const car = new Sprite(this.textureRed);
         this.sprite = car;
         if (utils.isMobileDevice()) {
             this.speed = 8;
