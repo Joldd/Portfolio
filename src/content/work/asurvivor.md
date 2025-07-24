@@ -9,6 +9,8 @@ tags:
   - Unity
   - C#
   - Android
+  - Game
+itch: https://julien-coutouly.itch.io/apocalypse-survivor
 ---
 
 J'ai réalisé ce jeu en équipe lors d'une Game Jam.

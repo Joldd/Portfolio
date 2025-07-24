@@ -52,7 +52,11 @@ const { Content } = await render(entry);
         <div class="stack gap-10 content">
           {
             Array.isArray(entry.data.img) ? (
-              <Carousel images={entry.data.img} alt={entry.data.img_alt || ""} title={entry.data.title} />
+              <Carousel
+                images={entry.data.img}
+                alt={entry.data.img_alt || ""}
+                title={entry.data.title}
+              />
             ) : (
               <img src={entry.data.img} alt={entry.data.img_alt || ""} />
             )
@@ -66,6 +70,18 @@ const { Content } = await render(entry);
                 <p>Lien Github : </p>
                 <a href={entry.data.github}>
                   <Icon icon="github-logo" size="2em" />
+                </a>
+              </div>
+            ) : (
+              <div />
+            )
+          }
+          {
+            entry.data.itch ? (
+              <div style="display: flex; gap:0.5rem;">
+                <p>Lien Itch.io : </p>
+                <a href={entry.data.itch} target="_blank">
+                  <Icon icon="itch" size="13em" />
                 </a>
               </div>
             ) : (

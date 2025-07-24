@@ -11,6 +11,7 @@ tags:
   - C#
   - NavMesh
 github: https://github.com/Joldd/Vikings
+itch: https://julien-coutouly.itch.io/vikings-versus-vicars
 ---
 
 J'ai commencé à développé ce jeu pour projet de fin d'études au Gaming Campus Lyon. 
