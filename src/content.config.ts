@@ -14,6 +14,7 @@ export const collections = {
 			img_alt: z.string().optional(),
 			github: z.string().optional(),
 			itch: z.string().optional(),
+			link: z.string().optional(),
 		}),
 	}),
 };

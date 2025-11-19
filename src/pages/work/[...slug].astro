@@ -88,6 +88,18 @@ const { Content } = await render(entry);
               <div />
             )
           }
+           {
+            entry.data.link ? (
+              <div style="display: flex; gap:0.5rem; align-items: center;">
+                <p>Lien du site : </p>
+                <a href={entry.data.link} target="_blank">
+                  <Icon icon="link" size="2em" />
+                </a>
+              </div>
+            ) : (
+              <div />
+            )
+          }
         </div>
       </main>
     </div>
