@@ -12,13 +12,14 @@ tags:
   - React
   - Vite
   - Tailwind
-  - Node.js
+  - Express
   - Docker
   - Traefik
+link: https://carbone.tagif.eu/
 ---
 
 Mon client souhaitait permettre à ses étudiants de prendre connaissance de leur impact carbone. Cependant, les tests existant actuellement ne permettait pas aux étudiants en alternance de renseigner leurs deux logements dans le calcul. C'est ce que qui différencie notre calculateur.
-Je l'ai développé en utilisant les ressources fournies par l'l'ADEME  et nosGestesClimats (startUp d'état)
+Je l'ai développé en utilisant les ressources fournies par l'l'ADEME et nosGestesClimats (startUp d'état)
 
 Les utilisateurs ont la possibilité de se créer un compte et de réaliser plusieurs calculs d'empreinte qu'ils pourront retrouver dans leur profil.
 Le quiz a été pensé pour être dynamique avec un graphique se mettant à jour à chaque clic et donnant les informations en temps réel.

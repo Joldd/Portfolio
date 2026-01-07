@@ -1,6 +1,6 @@
 ---
 title: Showroom 360°
-publishDate: 2025-16-05 00:00:00
+publishDate: 2025-10-10 00:00:00
 img: 
  - /assets/portfolio/showroom.png
  - /assets/portfolio/showroom2.png
@@ -12,7 +12,7 @@ tags:
   - Vite
   - Three.js
   - Bootstrap
-  - Node.js
+  - Express
   - Docker
   - Traefik
 ---

@@ -13,7 +13,7 @@ tags:
   - React
   - Vite
   - Tailwind
-  - Node.js
+  - Express
   - Docker
   - Traefik
   - Stripe

@@ -9,7 +9,7 @@ tags:
   - Web
   - React
   - Vite
-  - Node.js
+  - Express
   - API Rest
 github: https://github.com/Joldd/Stockler
 ---
