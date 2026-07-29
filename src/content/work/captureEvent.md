@@ -2,7 +2,6 @@
 title: Capture et gestion d'évenements
 publishDate: 2026-06-04 00:00:00
 img: 
-  - "/assets/portfolio/captureApp2.jpg"
   - "/assets/portfolio/mediaCapture.png"
   - "/assets/portfolio/captureApp.jpg"
 img_alt: ApplicationMobiles
