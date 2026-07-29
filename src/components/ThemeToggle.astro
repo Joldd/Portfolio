@@ -76,7 +76,9 @@ import Icon from './Icon.astro';
 
 			/** Set the theme to dark/light mode. */
 			const setTheme = (dark: boolean) => {
-				document.documentElement.classList[dark ? 'add' : 'remove']('theme-dark');
+				document.documentElement.classList[dark ? 'add' : 'remove'](
+					'theme-dark',
+				);
 				button.setAttribute('aria-pressed', String(dark));
 			};
 

@@ -11,10 +11,30 @@ const textLinks: { label: string; href: string }[] = [
 ];
 
 /** Icon links to social media — edit these with links to your profiles! */
-const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths; size: string }[] = [
-	{ label: 'Itch.io', href: 'https://julien-coutouly.itch.io/', icon: 'game', size : '1em' },
-	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/julien-coutouly-338a94127/', icon: 'linkedin', size : '1em' },
-	{ label: 'GitHub', href: 'https://github.com/Joldd', icon: 'github-logo', size : '1em' }
+const iconLinks: {
+	label: string;
+	href: string;
+	icon: keyof typeof iconPaths;
+	size: string;
+}[] = [
+	{
+		label: 'Itch.io',
+		href: 'https://julien-coutouly.itch.io/',
+		icon: 'game',
+		size: '1em',
+	},
+	{
+		label: 'LinkedIn',
+		href: 'https://www.linkedin.com/in/julien-coutouly-338a94127/',
+		icon: 'linkedin',
+		size: '1em',
+	},
+	{
+		label: 'GitHub',
+		href: 'https://github.com/Joldd',
+		icon: 'github-logo',
+		size: '1em',
+	},
 ];
 
 /** Test if a link is pointing to the current page. */
@@ -29,7 +49,12 @@ const isCurrentPage = (href: string) => {
 <nav>
 	<div class="menu-header">
 		<a href="/" class="site-title">
-			<Icon icon="terminal-window" color="var(--accent-regular)" size="1.6em" gradient />
+			<Icon
+				icon="terminal-window"
+				color="var(--accent-regular)"
+				size="1.6em"
+				gradient
+			/>
 			Julien Coutouly
 		</a>
 		<menu-button>
@@ -46,7 +71,11 @@ const isCurrentPage = (href: string) => {
 			{
 				textLinks.map(({ label, href }) => (
 					<li>
-						<a aria-current={isCurrentPage(href) ? 'page' : null} class="link" href={href}>
+						<a
+							aria-current={isCurrentPage(href) ? 'page' : null}
+							class="link"
+							href={href}
+						>
 							{label}
 						</a>
 					</li>
@@ -73,7 +102,11 @@ const isCurrentPage = (href: string) => {
 			{
 				textLinks.map(({ label, href }) => (
 					<li>
-						<a aria-current={isCurrentPage(href) ? 'page' : null} class="link" href={href}>
+						<a
+							aria-current={isCurrentPage(href) ? 'page' : null}
+							class="link"
+							href={href}
+						>
 							{label}
 						</a>
 					</li>
@@ -174,7 +207,8 @@ const isCurrentPage = (href: string) => {
 
 	.menu-button[aria-expanded='true'] {
 		color: var(--gray-0);
-		background: linear-gradient(180deg, var(--gray-600), transparent),
+		background:
+			linear-gradient(180deg, var(--gray-600), transparent),
 			radial-gradient(var(--gray-900), var(--gray-800) 150%);
 	}
 

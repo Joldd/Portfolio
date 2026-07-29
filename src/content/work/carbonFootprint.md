@@ -1,10 +1,10 @@
 ---
 title: Carbon Footprint Calculator
 publishDate: 2025-16-06 00:00:00
-img: 
-  - "/assets/portfolio/impacts.png"
-  - "/assets/portfolio/impacts2.png"
-  - "/assets/portfolio/impacts3.png"
+img:
+  - '/assets/portfolio/impacts.png'
+  - '/assets/portfolio/impacts2.png'
+  - '/assets/portfolio/impacts3.png'
 img_alt: Carbon_Footprint_Calculator
 description: |
   Ce site web permet aux étudiants de calculer leur empreinte carbone.

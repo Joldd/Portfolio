@@ -14,8 +14,8 @@ github: https://github.com/Joldd/Vikings
 itch: https://julien-coutouly.itch.io/vikings-versus-vicars
 ---
 
-J'ai commencé à développé ce jeu pour projet de fin d'études au Gaming Campus Lyon. 
-Le jeu est actuellement sous forme de protoype et possède un niveau jouable. 
+J'ai commencé à développé ce jeu pour projet de fin d'études au Gaming Campus Lyon.
+Le jeu est actuellement sous forme de protoype et possède un niveau jouable.
 Je continue aujourd'hui à le développer et souhaiterai le faire évoluer en jeu multijoueur.
 
 La mécanique originale du jeu est le moyen de déplacer nos troupes d'unités.
@@ -28,8 +28,8 @@ En effet des bonus seront attribués à vos troupes si elles engagent les combat
 
 Pour construire de nouveaux bâtiments il faudra prendre le contrôle de zones de contruction.
 
-Déjà trois unités différentes sont disponibles pour constituer nos troupes : 
-* Guerrier (corps à corps)
-* Archer (Distance)
-* Héro (attaque en zone)
+Déjà trois unités différentes sont disponibles pour constituer nos troupes :
 
+- Guerrier (corps à corps)
+- Archer (Distance)
+- Héro (attaque en zone)

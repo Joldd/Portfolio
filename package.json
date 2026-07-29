@@ -1,20 +1,26 @@
 {
-  "name": "@example/portfolio",
-  "type": "module",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@pixi/ui": "^2.2.2",
-    "alpinejs": "^3.14.8",
-    "astro": "^5.13.4",
-    "astro-carousel": "^3.0.2",
-    "pixi.js": "^8.8.1",
-    "react-img-carousel": "^2.4.1"
-  }
+	"name": "@example/portfolio",
+	"type": "module",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
+	},
+	"dependencies": {
+		"@pixi/ui": "^2.2.2",
+		"alpinejs": "^3.14.8",
+		"astro": "^5.13.4",
+		"astro-carousel": "^3.0.2",
+		"pixi.js": "^8.8.1",
+		"react-img-carousel": "^2.4.1"
+	},
+	"devDependencies": {
+		"prettier": "^3.9.6",
+		"prettier-plugin-astro": "^0.14.1"
+	}
 }

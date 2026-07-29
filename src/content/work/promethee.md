@@ -1,11 +1,11 @@
 ---
 title: Prométhée
 publishDate: 2025-10-10 00:00:00
-img: 
-  - "/assets/portfolio/promethee.png"
-  - "/assets/portfolio/promethee1.png"
-  - "/assets/portfolio/promethee2.png"
-  - "/assets/portfolio/promethee3.png"
+img:
+  - '/assets/portfolio/promethee.png'
+  - '/assets/portfolio/promethee1.png'
+  - '/assets/portfolio/promethee2.png'
+  - '/assets/portfolio/promethee3.png'
 img_alt: Prométhée
 description: |
   Ce site web est destiné aux personnes souhaitant investir en bourse.

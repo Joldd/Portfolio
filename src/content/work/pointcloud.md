@@ -22,10 +22,10 @@ Nous avons cherché à rendre son utilisation la plus intuitive possible.
 <p style="margin-top:0">Cela permet d'obtenir très rapidement un plan précis (dépendant de la qualité du nuage de points) de zones potentiellement difficiles d'accès.</p>
 
 Je me suis aussi occupé de la maintenance et de l'optimisation des différents outils de l'application :
-* Vue en coupe
-* Mesure en 3D
-* Ajout de modèles 3D
-* Navigation via des images 360°
-* Ajout de tags / fichiers
-* Déplacement à la souris ou en vue FPS
 
+- Vue en coupe
+- Mesure en 3D
+- Ajout de modèles 3D
+- Navigation via des images 360°
+- Ajout de tags / fichiers
+- Déplacement à la souris ou en vue FPS

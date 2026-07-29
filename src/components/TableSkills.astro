@@ -1,14 +1,13 @@
 ---
-
 interface Props {
 	head?: string;
 	skills?: string[];
 	headColor?: string;
 }
 
-const { head, skills = [], headColor = "rgb(255 100 100)" } = Astro.props;
-
+const { head, skills = [], headColor = 'rgb(255 100 100)' } = Astro.props;
 ---
+
 <table>
 	<tr style="height:1rem; white-space: nowrap;">
 		<th>{head}</th>
@@ -19,11 +18,10 @@ const { head, skills = [], headColor = "rgb(255 100 100)" } = Astro.props;
 				<td>{skill}</td>
 			</tr>
 		))
-	}					
+	}
 </table>
 
-<style define:vars={{headColor}}>
-
+<style define:vars={{ headColor }}>
 	th {
 		padding-top: 12px;
 		padding-bottom: 12px;
@@ -31,7 +29,8 @@ const { head, skills = [], headColor = "rgb(255 100 100)" } = Astro.props;
 		background-color: var(--headColor);
 		color: white;
 	}
-	th, td {
+	th,
+	td {
 		border: 1px solid black;
 		text-align: center;
 		padding-left: 20px;

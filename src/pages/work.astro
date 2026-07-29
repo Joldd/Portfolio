@@ -13,8 +13,8 @@ const projects = (await getCollection('work')).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
 const allTags: string[] = [];
-projects.forEach(p => {
-	p.data.tags.forEach(t => {
+projects.forEach((p) => {
+	p.data.tags.forEach((t) => {
 		if (!allTags.includes(t)) {
 			allTags.push(t);
 		}
@@ -39,72 +39,67 @@ projects.forEach(p => {
 			<Grid variant="offset">
 				{
 					projects.map((project) => (
-						<li class="project-li" >
+						<li class="project-li">
 							<PortfolioPreview project={project} />
 						</li>
 					))
 				}
-
+			</Grid>
+			<ContactCTA />
 		</main>
-		<ContactCTA />
 	</div>
-</BaseLayout>
 
-<script>
-	const pillsSelected:string[] = [];
-	const pillSelects = document.querySelectorAll(".pillSelect");
-	const projectsCards = document.querySelectorAll('.project-li')
-	const grid = document.querySelector('.offset');
-	pillSelects.forEach((pill) => {
-		pill.addEventListener("click", () => {
-			if (pill.classList.contains("selected") && pill.textContent) {
-				pill.classList.remove("selected");
-				const index = pillsSelected.indexOf(pill.textContent);
-				pillsSelected.splice(index, 1);
-			} else {
-				pill.classList.add("selected");
-				if (pill.textContent) {
-					pillsSelected.push(pill.textContent);
+	<script>
+		const pillsSelected: string[] = [];
+		const pillSelects = document.querySelectorAll('.pillSelect');
+		const projectsCards = document.querySelectorAll('.project-li');
+		const grid = document.querySelector('.offset');
+		pillSelects.forEach((pill) => {
+			pill.addEventListener('click', () => {
+				if (pill.classList.contains('selected') && pill.textContent) {
+					pill.classList.remove('selected');
+					const index = pillsSelected.indexOf(pill.textContent);
+					pillsSelected.splice(index, 1);
+				} else {
+					pill.classList.add('selected');
+					if (pill.textContent) {
+						pillsSelected.push(pill.textContent);
+					}
 				}
-			}
-			if (pillsSelected.length === 0) {	
-				projectsCards.forEach(e => {
-					(e as HTMLElement).style.display = 'grid';
+				if (pillsSelected.length === 0) {
+					projectsCards.forEach((e) => {
+						(e as HTMLElement).style.display = 'grid';
+					});
+					if (grid) {
+						grid.classList.toggle('offset', true);
+					}
+					return;
+				}
+				projectsCards.forEach((project) => {
+					if (grid) {
+						grid.classList.toggle('offset', false);
+					}
+					const pills = project.querySelectorAll('.pill');
+					const tags = Array.from(pills).map((p) => p.textContent);
+					for (const p of pillsSelected) {
+						if (!tags.includes(p)) {
+							(project as HTMLElement).style.display = 'none';
+							break;
+						} else {
+							(project as HTMLElement).style.display = 'grid';
+						}
+					}
 				});
-				if (grid){
-					grid.classList.toggle("offset", true);
-				}
-				return;
-			}
-			 projectsCards.forEach(project => {
-				if (grid){
-					grid.classList.toggle("offset", false);
-				}
-				const pills = project.querySelectorAll('.pill');
-				const tags = Array.from(pills).map(p => p.textContent);
-				for (const p of pillsSelected) {
-					if (!tags.includes(p)) {
-						(project as HTMLElement).style.display = 'none';
-						break;
-					}
-					else {
-						(project as HTMLElement).style.display = 'grid';
-					}
-				}
 			});
 		});
-	});
+	</script>
 
-</script>
-
-<style>
-	.allTags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		justify-content: center;
-	}
-</style>
-
-
-
+	<style>
+		.allTags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+			justify-content: center;
+		}
+	</style>
+</BaseLayout>
