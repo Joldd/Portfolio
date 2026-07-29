@@ -48,6 +48,19 @@ import TableSkills from '../components/TableSkills.astro';
 							target="_blank"
 							rel="noopener noreferrer">IBuycott</a
 						> depuis Février 2025 et suis en charge du développement du site web.
+						<br />J'ai également développé pour un client une application de <a
+							href="https://jcoutouly.fr/work/captureevent/"
+							target="_blank"
+							rel="noopener noreferrer">capture et gestion d'évènements</a
+						> (application mobile React Native/Expo couplée à un back-office React,
+						avec Supabase pour le stockage des données et des médias).
+						<br />En parallèle, je développe bénévolement <a
+							href="https://jcoutouly.fr/work/pollen/"
+							target="_blank"
+							rel="noopener noreferrer">Pollen</a
+						>, l'adaptation en ligne d'un jeu de société sur Board Game Arena.
+						Le jeu est actuellement en alpha : je recueille les retours des
+						testeurs pour préparer son passage en bêta.
 						<br />Les autres projets présents dans mon portfolio ont été
 						réalisés dans le cadre de mon alternance chez Hélodée ou de ma
 						formation au Gaming Campus.
@@ -151,8 +164,8 @@ import TableSkills from '../components/TableSkills.astro';
 
 	.skills {
 		display: grid;
-		margin-left: 50px;
-		margin-right: 50px;
+		grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+		gap: 1.5rem;
 	}
 
 	.content {
@@ -187,12 +200,6 @@ import TableSkills from '../components/TableSkills.astro';
 		section {
 			display: contents;
 			font-size: var(--text-lg);
-		}
-
-		.skills {
-			display: flex !important;
-			margin-left: 0px;
-			margin-right: 0px;
 		}
 	}
 </style>
