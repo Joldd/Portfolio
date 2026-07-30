@@ -1,29 +1,40 @@
-import { Graphics } from 'pixi.js';
+import { Application, Graphics, type Ticker } from 'pixi.js';
 import * as utils from './Utils.js';
 
 export class Trees {
-	constructor(app) {
+	app: Application;
+	speed: number;
+	trees: Graphics[];
+	treeWidth: number;
+	spacing: number;
+	baseY: number;
+	count: number;
+
+	constructor(app: Application) {
 		this.app = app;
-		this.sprite = null;
 		this.speed = 3;
 		this.trees = [];
 		this.treeWidth = 150;
 		this.spacing = 100;
 		this.baseY = app.screen.height - 50;
-		this.count;
+		this.count = 0;
 	}
 
-	AddTrees() {
+	AddTrees(): void {
 		// Width of each tree.
-		if (utils.isMobileDevice()) this.treeWidth = 100;
+		this.treeWidth = utils.isMobileDevice() ? 100 : 150;
+		this.baseY = this.app.screen.height - 50;
 
-		// Calculate the number of trees needed to fill the screen horizontally.
-		this.count = this.app.screen.width / (this.treeWidth + this.spacing) + 1;
+		// Calculate the number of trees needed to fill the screen horizontally,
+		// plus a couple extra so the belt always wraps seamlessly.
+		this.count =
+			Math.ceil(this.app.screen.width / (this.treeWidth + this.spacing)) + 2;
 
 		for (let index = 0; index < this.count; index++) {
 			// Randomize the height of each tree within a constrained range.
-			let treeHeight = 175 + Math.random() * 75;
-			if (utils.isMobileDevice()) treeHeight = 100 + Math.random() * 50;
+			const treeHeight = utils.isMobileDevice()
+				? 100 + Math.random() * 50
+				: 175 + Math.random() * 75;
 
 			// Create a tree instance.
 			const tree = this.CreateTree(this.treeWidth, treeHeight);
@@ -38,7 +49,14 @@ export class Trees {
 		}
 	}
 
-	Restart() {
+	Resize(): void {
+		// Rebuild the tree belt so it always covers the current screen width.
+		this.trees.forEach((tree) => this.app.stage.removeChild(tree));
+		this.trees = [];
+		this.AddTrees();
+	}
+
+	Restart(): void {
 		// Reset the speed and reposition the trees.
 		this.speed = 3;
 		this.trees.forEach((tree, index) => {
@@ -47,7 +65,7 @@ export class Trees {
 		});
 	}
 
-	Update(time, increaseSpeed) {
+	Update(time: Ticker, increaseSpeed: number): void {
 		// Calculate the amount of distance to move the trees per tick.
 		const dx = time.deltaTime * this.speed;
 		this.speed += increaseSpeed; // Increment speed slightly each frame.
@@ -62,7 +80,7 @@ export class Trees {
 		});
 	}
 
-	CreateTree(width, height) {
+	CreateTree(width: number, height: number): Graphics {
 		// Define the dimensions of the tree trunk.
 		const trunkWidth = 25;
 		const trunkHeight = height / 6;

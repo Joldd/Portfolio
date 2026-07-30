@@ -1,9 +1,9 @@
-import { Assets, Sprite } from 'pixi.js';
+import { Application, Assets, Sprite, type Texture } from 'pixi.js';
 import * as utils from './Utils.js';
 
-export async function addMoon(app) {
+export async function addMoon(app: Application): Promise<void> {
 	// Load the moon texture
-	const texture = await Assets.load('./assets/game/moon.svg');
+	const texture: Texture = await Assets.load('./assets/game/moon.svg');
 
 	// Create a moon Sprite
 	const moon = new Sprite(texture);

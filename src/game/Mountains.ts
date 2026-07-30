@@ -1,14 +1,19 @@
-import { Graphics } from 'pixi.js';
+import { Application, Graphics, type Ticker } from 'pixi.js';
 
 export class Mountains {
-	constructor(app) {
+	app: Application;
+	group1: Graphics | null;
+	group2: Graphics | null;
+	speed: number;
+
+	constructor(app: Application) {
 		this.app = app;
 		this.group1 = null;
 		this.group2 = null;
 		this.speed = 0.5;
 	}
 
-	CreateMountainGroup() {
+	CreateMountainGroup(): Graphics {
 		// Create a graphics object to hold all the mountains in a group.
 		const graphics = new Graphics();
 
@@ -21,7 +26,7 @@ export class Mountains {
 
 		// Start point on the x-axis of the individual mountain.
 		const startXLeft = 0;
-		const startXMiddle = Number(this.app.screen.width) / 4;
+		const startXMiddle = this.app.screen.width / 4;
 		const startXRight = this.app.screen.width / 2;
 
 		// Height of the individual mountain.
@@ -74,11 +79,11 @@ export class Mountains {
 		return graphics;
 	}
 
-	AddMountains() {
+	AddMountains(): void {
 		// Create two mountain groups where one will be on the screen and the other will be off screen.
 		// When the first group moves off screen, it will be moved to the right of the second group.
-		this.group1 = this.CreateMountainGroup(this.app);
-		this.group2 = this.CreateMountainGroup(this.app);
+		this.group1 = this.CreateMountainGroup();
+		this.group2 = this.CreateMountainGroup();
 
 		// Position the 2nd group off the screen to the right.
 		this.group2.x = this.app.screen.width;
@@ -87,28 +92,28 @@ export class Mountains {
 		this.app.stage.addChild(this.group1, this.group2);
 	}
 
-	Restart() {
+	Restart(): void {
 		// Reset the speed and reposition the mountain groups.
 		this.speed = 0.5;
-		this.group1.x = 0;
-		this.group2.x = this.app.screen.width;
+		this.group1!.x = 0;
+		this.group2!.x = this.app.screen.width;
 	}
 
-	Update(time, increaseSpeed) {
+	Update(time: Ticker, increaseSpeed: number): void {
 		// Calculate the amount of distance to move the mountain groups per tick.
 		const dx = time.deltaTime * this.speed;
 		this.speed += increaseSpeed; // Increment speed slightly each frame.
 
 		// Move the mountain groups leftwards.
-		this.group1.x -= dx;
-		this.group2.x -= dx;
+		this.group1!.x -= dx;
+		this.group2!.x -= dx;
 
 		// Reposition the mountain groups when they move off screen.
-		if (this.group1.x <= -this.app.screen.width) {
-			this.group1.x += this.app.screen.width * 2;
+		if (this.group1!.x <= -this.app.screen.width) {
+			this.group1!.x += this.app.screen.width * 2;
 		}
-		if (this.group2.x <= -this.app.screen.width) {
-			this.group2.x += this.app.screen.width * 2;
+		if (this.group2!.x <= -this.app.screen.width) {
+			this.group2!.x += this.app.screen.width * 2;
 		}
 	}
 }

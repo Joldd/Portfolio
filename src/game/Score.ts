@@ -1,7 +1,12 @@
-import { Text, TextStyle } from 'pixi.js';
+import { Application, Text, TextStyle, type Ticker } from 'pixi.js';
 import * as utils from './Utils.js';
 
 export class Score {
+	score: number;
+	textObj: Text | null;
+	bestScore: number;
+	bestObj: Text | null;
+
 	constructor() {
 		this.score = 0;
 		this.textObj = null;
@@ -9,7 +14,7 @@ export class Score {
 		this.bestObj = null;
 	}
 
-	Start(app) {
+	Start(app: Application): void {
 		const style = new TextStyle({
 			fontFamily: 'Arial',
 			fontSize: 25,
@@ -43,15 +48,15 @@ export class Score {
 		app.stage.addChild(this.bestObj);
 	}
 
-	Update(time) {
+	Update(time: Ticker): void {
 		this.score += time.deltaTime / 10;
-		this.textObj.text = this.score.toFixed(0);
+		this.textObj!.text = this.score.toFixed(0);
 	}
 
-	Loose() {
+	Loose(): void {
 		if (this.score > this.bestScore) {
 			this.bestScore = this.score;
-			this.bestObj.text = 'Record : ' + this.bestScore.toFixed(0);
+			this.bestObj!.text = 'Record : ' + this.bestScore.toFixed(0);
 		}
 		this.score = 0;
 	}
