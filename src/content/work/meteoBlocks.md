@@ -2,9 +2,9 @@
 title: MétéoBlocks
 publishDate: 2025-10-07 00:00:00
 img:
-  - '/assets/portfolio/MeteoBlocksBase.jpg'
-  - '/assets/portfolio/MeteoBlocksFreeze.jpg'
-  - '/assets/portfolio/MeteoBlocksHeat.jpg'
+  - MeteoBlocksBase.jpg
+  - MeteoBlocksFreeze.jpg
+  - MeteoBlocksHeat.jpg
 img_alt: MeteoBlocks
 description: |
   Jeu mélant Tétris et évennements climatiques.

@@ -2,8 +2,8 @@
 title: Showroom 360°
 publishDate: 2025-10-10 00:00:00
 img:
-  - /assets/portfolio/showroom.png
-  - /assets/portfolio/showroom2.png
+  - showroom.png
+  - showroom2.png
 img_alt: Showroom_360°
 description: |
   Ce site a eu pour but de présenter les produits du client lors d'un salon industriel.

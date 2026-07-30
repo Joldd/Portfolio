@@ -2,8 +2,8 @@
 title: Capture et gestion d'évenements
 publishDate: 2026-06-04 00:00:00
 img:
-  - '/assets/portfolio/mediaCapture.png'
-  - '/assets/portfolio/captureApp.jpg'
+  - mediaCapture.png
+  - captureApp.jpg
 img_alt: ApplicationMobiles
 description: |
   Application mobile permettant de capturer un média en lui ajoutant des données. Un backoffice permet de gérer tout ce flux.

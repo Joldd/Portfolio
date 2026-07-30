@@ -2,9 +2,9 @@
 title: I Buycott
 publishDate: 2026-01-01 00:00:00
 img:
-  - /assets/portfolio/buycott1.JPG
-  - /assets/portfolio/buycott2.JPG
-  - /assets/portfolio/buycott3.JPG
+  - buycott1.JPG
+  - buycott2.JPG
+  - buycott3.JPG
 img_alt: vikings
 description: |
   Site communautaire où tout le monde peut proposer des campagnes de buycott ou participer à l'une d'entre elles. Le but est d'entrer en communication avec les entreprises cibles afin d'obtenir des résultats concrets.

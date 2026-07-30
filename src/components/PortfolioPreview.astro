@@ -1,5 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { getPortfolioImage } from '../assets/portfolioImages';
 import PillSmall from './PillSmall.astro';
 
 interface Props {
@@ -7,27 +9,14 @@ interface Props {
 }
 
 const { data, id } = Astro.props.project;
+const previewImg = getPortfolioImage(
+	Array.isArray(data.img) ? data.img[0] : data.img,
+);
 ---
 
 <a class="card" href={`/work/${id}`}>
 	<span class="title">{data.title}</span>
-	{
-		Array.isArray(data.img) ? (
-			<img
-				src={data.img[0]}
-				alt={data.img_alt || ''}
-				loading="lazy"
-				decoding="async"
-			/>
-		) : (
-			<img
-				src={data.img}
-				alt={data.img_alt || ''}
-				loading="lazy"
-				decoding="async"
-			/>
-		)
-	}
+	<Image src={previewImg} alt={data.img_alt || ''} loading="lazy" />
 	<div class="tags">
 		{data.tags.map((t) => <PillSmall>{t}</PillSmall>)}
 	</div>

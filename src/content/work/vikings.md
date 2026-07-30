@@ -1,7 +1,7 @@
 ---
 title: Vikings Versus Vicars
 publishDate: 2023-11-02 00:00:00
-img: /assets/portfolio/vikings.jpg
+img: vikings.jpg
 img_alt: vikings
 description: |
   Jeu de stratégie où l'anticipation des déplacements des troupes est la priorité afin de repousser l'invasion viking.

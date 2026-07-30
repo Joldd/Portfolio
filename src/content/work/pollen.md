@@ -2,8 +2,8 @@
 title: Pollen
 publishDate: 2026-06-02 00:00:00
 img:
-  - '/assets/portfolio/pollen.png'
-  - '/assets/portfolio/pollen1.png'
+  - pollen.png
+  - pollen1.png
 img_alt: ApplicationMobiles
 description: |
   Jeu de société Pollen pour le site Board Game Arena
